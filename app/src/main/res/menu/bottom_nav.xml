@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="@string/plan"
+        android:id="@+id/bot_plan"
+        android:enabled="false"
+        android:icon="@drawable/ic_calendar_material_design"/>
+    <item
+        android:title="@string/search"
+        android:id="@+id/bot_search"
+        android:icon="@drawable/ic_search_material_design"/>
+    <item
+        android:title="@string/community"
+        android:id="@+id/bot_community"
+        android:icon="@drawable/ic_people_material_design"/>
+    <item
+        android:title="@string/profile"
+        android:id="@+id/bot_profile"
+        android:icon="@drawable/ic_person_material_design"/>
+</menu>

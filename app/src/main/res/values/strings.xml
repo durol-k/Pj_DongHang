@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">DongHang</string>
+    <string name="plan">Plan</string>
+    <string name="search">Search</string>
+    <string name="community">Community</string>
+    <string name="profile">Profile</string>
+
+</resources>
