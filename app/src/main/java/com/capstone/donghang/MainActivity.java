@@ -9,14 +9,15 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.capstone.donghang.plan.FragmentAddPlanSetting;
 import com.capstone.donghang.plan.FragmentPlan;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
-    Fragment fragmentPlan, fragmentSearch, fragmentCommunity, fragmentProfile;
+    public Fragment fragmentPlan, fragmentSearch, fragmentCommunity, fragmentProfile;
     Fragment currentFragment;
-    FragmentManager fragmentManager;
+    public FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
 
     @Override
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.bot_plan:
                         currentFragment = fragmentPlan;
-                           break;
+                        break;
                     case R.id.bot_search:
                         currentFragment = fragmentSearch;
                         break;

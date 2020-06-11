@@ -2,8 +2,6 @@ package com.capstone.donghang.plan;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +30,6 @@ public class PlanListRecyclerAdapter extends RecyclerView.Adapter<PlanListRecycl
             this.title = itemView.findViewById(R.id.planlist_recycler_item_title);
             this.date = itemView.findViewById(R.id.planlist_recycler_item_date);
             this.tagLayout = itemView.findViewById(R.id.planlist_recycler_item_tagLayout);
-
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -70,7 +67,6 @@ public class PlanListRecyclerAdapter extends RecyclerView.Adapter<PlanListRecycl
             layoutParams.setMargins(4,0,4,0);
             tvTag.setLayoutParams(layoutParams);
 
-            //부모 뷰에 추가
             holder.tagLayout.addView(tvTag);
         }
     }
