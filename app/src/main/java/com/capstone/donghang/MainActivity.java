@@ -7,9 +7,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 
+import com.capstone.donghang.Search.AfterSearch.FragmentAfterSearch;
+import com.capstone.donghang.Search.FragmentSearch;
+import com.capstone.donghang.Search.SelectSearch.FragmentSelectSearch;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         //set fragment
         fragmentPlan = new FragmentPlan();
-        fragmentSearch = new FragmentSearch();
+        fragmentSearch = new FragmentSelectSearch();
         fragmentCommunity = new FragmentCommunity();
         fragmentProfile = new FragmentProfile();
 
