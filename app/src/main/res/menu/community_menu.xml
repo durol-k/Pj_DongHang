@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+    <item
+        android:id="@+id/content_all"
+        android:title="전체 게시글" />
+    <item
+        android:id="@+id/content_popular"
+        android:title="인기게시글" />
+    <item
+        android:id="@+id/content_notice"
+        android:title="공지사항" />
+    </group>
+
+    <item android:title="여행 후기 게시판">
+        <menu>
+            <item
+                android:id="@+id/content_domestic_review"
+                android:title="국내 여행 후기" />
+            <item
+                android:id="@+id/content_foreign_review"
+                android:title="해외 여행 후기" />
+            <item
+                android:id="@+id/content_travel_picture"
+                android:title="여행사진" />
+        </menu>
+    </item>
+
+    <item android:title="동행 게시판">
+        <menu>
+            <item
+                android:id="@+id/content_domestic_donghang"
+                android:title="국내 동행" />
+            <item
+                android:id="@+id/content_foreign_donghang"
+                android:title="해외 동행" />
+        </menu>
+    </item>
+
+    <item android:title="여행 정보">
+    <menu>
+        <item
+            android:id="@+id/content_info"
+            android:title="여행정보" />
+        <item
+            android:id="@+id/content_tip"
+            android:title="나만의 여행 팁" />
+        <item
+            android:id="@+id/content_qna"
+            android:title="질문 게시판" />
+        <item
+            android:id="@+id/content_news"
+            android:title="여행지 뉴스" />
+        <item
+            android:id="@+id/content_sale"
+            android:title="할인 정보" />
+        <item
+            android:id="@+id/content_talk"
+            android:title="현지인이 말하다" />
+    </menu>
+</item>
+
+    <item android:title="여행 정보">
+        <menu>
+            <item
+                android:id="@+id/content_free"
+                android:title="자유 게시판" />
+            <item
+                android:id="@+id/content_request"
+                android:title="건의 게시판" />
+
+        </menu>
+    </item>
+
+</menu>

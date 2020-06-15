@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="community_category">
+        <item>공지사항</item>
+        <item>국내 여행 후기</item>
+        <item>해외 여행 후기</item>
+        <item>여행 사진</item>
+        <item>국내 동행</item>
+        <item>해외 동행</item>
+        <item>여행 정보</item>
+        <item>나만의 여행 팁</item>
+        <item>질문 게시판</item>
+        <item>여행지 뉴스</item>
+        <item>할인 정보</item>
+        <item>현지인이 말하다</item>
+        <item>자유 게시판</item>
+        <item>건의 게시판</item>
+    </string-array>
+
+    <string-array name="community_header_notice">
+        <item>긴급</item>
+        <item>일반</item>
+    </string-array>
+    <string-array name="community_header_review">
+        <item>후기</item>
+    </string-array>
+    <string-array name="community_header_picture">
+        <item>사진</item>
+    </string-array>
+
+</resources>
