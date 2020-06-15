@@ -104,7 +104,7 @@
             android:text="좋아요" />
 
         <TextView
-            android:id="@+id/community_like"
+            android:id="@+id/community_mainitem_likeCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -117,7 +117,7 @@
             android:text="댓글" />
 
         <TextView
-            android:id="@+id/community_comment"
+            android:id="@+id/community_mainitem_commentCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -130,7 +130,7 @@
             android:text="조회수" />
 
         <TextView
-            android:id="@+id/community_view"
+            android:id="@+id/community_mainitem_viewCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"

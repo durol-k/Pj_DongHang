@@ -8,7 +8,7 @@
     tools:showIn="@layout/fragment_community_main">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/community_recyclerview"
+        android:id="@+id/community_mainlist_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

@@ -6,8 +6,9 @@
     android:orientation="vertical"
     android:background="#656464"
     >
+
     <Spinner
-        android:id="@+id/community_select_category"
+        android:id="@+id/community_write_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/community_white"
@@ -17,7 +18,7 @@
 
     <Spinner
         android:layout_marginTop="2dp"
-        android:id="@+id/community_select_head"
+        android:id="@+id/community_write_head"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/community_white"
@@ -27,7 +28,7 @@
 
     <EditText
         android:padding="10dp"
-        android:id="@+id/comminity_writing_title"
+        android:id="@+id/comminity_write_title"
         android:layout_marginTop="2dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -36,7 +37,7 @@
 
     <EditText
         android:padding="10dp"
-        android:id="@+id/comminity_writing_content"
+        android:id="@+id/comminity_write_content"
         android:layout_marginTop="2dp"
         android:layout_width="match_parent"
         android:layout_height="350dp"
@@ -47,7 +48,7 @@
 
     <EditText
         android:padding="10dp"
-        android:id="@+id/comminity_writing_tag"
+        android:id="@+id/comminity_write_tag"
         android:layout_marginTop="2dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

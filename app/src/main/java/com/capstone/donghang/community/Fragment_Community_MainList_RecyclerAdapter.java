@@ -1,6 +1,7 @@
 package com.capstone.donghang.community;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +20,6 @@ import java.util.List;
 public class Fragment_Community_MainList_RecyclerAdapter extends RecyclerView.Adapter<Fragment_Community_MainList_RecyclerAdapter.ViewHolder> {
     private Context context;
     private List<Fragment_Community_MainListItem> itemList;
-    private String id,time,title,content;
-    private int img,like,comment,viewCount,icon;
 
     public Fragment_Community_MainList_RecyclerAdapter(Context context, List<Fragment_Community_MainListItem> itemList) {
         this.context = context;
@@ -38,15 +37,15 @@ public class Fragment_Community_MainList_RecyclerAdapter extends RecyclerView.Ad
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Fragment_Community_MainListItem item = itemList.get(position);
-        id = item.getId();
-        time = item.getTime();
-        title = item.getTitle();
-        content = item.getContent();
-       img = item.getImg();
-         like = item.getLike();
-       comment = item.getComment();
-        viewCount = item.getView();
-       icon = item.getIcon();
+        String id = item.getId();
+        String time = item.getTime();
+        String title = item.getTitle();
+        String content = item.getContent();
+        int img = item.getImg();
+        int like = item.getLike();
+        int comment = item.getComment();
+        int viewCount = item.getView();
+        int icon = item.getIcon();
 
         holder.idTv.setText(id);
         holder.timeTv.setText(time);
@@ -57,6 +56,7 @@ public class Fragment_Community_MainList_RecyclerAdapter extends RecyclerView.Ad
         holder.commentTv.setText(String.valueOf(comment));
         holder.viewCountTv.setText(String.valueOf(viewCount));
         holder.iconView.setImageResource(icon);
+
     }
 
     @Override
@@ -64,9 +64,10 @@ public class Fragment_Community_MainList_RecyclerAdapter extends RecyclerView.Ad
         return itemList.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder{
-        TextView idTv,timeTv,titleTv,contentTv,likeTv,commentTv,viewCountTv;
-        ImageView imgView,iconView;
+    class ViewHolder extends RecyclerView.ViewHolder {
+        TextView idTv, timeTv, titleTv, contentTv, likeTv, commentTv, viewCountTv;
+        ImageView imgView, iconView;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             idTv = itemView.findViewById(R.id.community_id);
@@ -74,22 +75,27 @@ public class Fragment_Community_MainList_RecyclerAdapter extends RecyclerView.Ad
             titleTv = itemView.findViewById(R.id.community_title);
             contentTv = itemView.findViewById(R.id.community_content);
             imgView = itemView.findViewById(R.id.community_image);
-            likeTv = itemView.findViewById(R.id.community_like);
-            commentTv = itemView.findViewById(R.id.community_comment);
-            viewCountTv = itemView.findViewById(R.id.community_view);
+            likeTv = itemView.findViewById(R.id.community_mainitem_likeCount);
+            commentTv = itemView.findViewById(R.id.community_mainitem_commentCount);
+            viewCountTv = itemView.findViewById(R.id.community_mainitem_viewCount);
             iconView = itemView.findViewById(R.id.community_icon);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int pos = getAdapterPosition();
-                    if(pos != RecyclerView.NO_POSITION) {
-                        Fragment_Community_ItemInfo fcd = new Fragment_Community_ItemInfo(context, icon, viewCount, id, time, title, content);
-                        FragmentTransaction transaction = ((MainActivity) context).getSupportFragmentManager().beginTransaction();
-                        transaction.replace(R.id.frame_main, fcd);
-                        transaction.addToBackStack(null);
-                        transaction.commit();
-                    }
+                    int icon = itemList.get(pos).getIcon();
+                    int viewCount = itemList.get(pos).getView();
+                    String id = itemList.get(pos).getId();
+                    String time = itemList.get(pos).getTime();
+                    String title = itemList.get(pos).getTitle();
+                    String content = itemList.get(pos).getContent();
+
+                    Fragment_Community_ItemInfo fcd = new Fragment_Community_ItemInfo(context, icon, viewCount, id, time, title, content);
+                    FragmentTransaction transaction = ((MainActivity) context).getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.frame_main, fcd);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
                 }
             });
         }

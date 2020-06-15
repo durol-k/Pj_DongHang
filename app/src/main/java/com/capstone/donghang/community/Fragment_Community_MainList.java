@@ -29,7 +29,7 @@ public class Fragment_Community_MainList extends Fragment {
 
         initData();
 
-        RecyclerView recyclerView = view.findViewById(R.id.community_recyclerview);
+        RecyclerView recyclerView = view.findViewById(R.id.community_mainlist_recyclerview);
         Fragment_Community_MainList_RecyclerAdapter recyclerAdapter = new Fragment_Community_MainList_RecyclerAdapter(getContext(),itemList);
         recyclerView.setAdapter(recyclerAdapter);
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL)); //구분선

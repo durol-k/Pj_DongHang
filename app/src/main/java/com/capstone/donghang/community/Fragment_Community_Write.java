@@ -27,8 +27,8 @@ public class Fragment_Community_Write extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_community_write, container, false);
 
-        Spinner category = view.findViewById(R.id.community_select_category);
-        Spinner header = view.findViewById(R.id.community_select_head);
+        Spinner category = view.findViewById(R.id.community_write_category);
+        Spinner header = view.findViewById(R.id.community_write_head);
         ArrayAdapter catAdapter = ArrayAdapter.createFromResource(getContext(), R.array.community_category, android.R.layout.simple_spinner_dropdown_item);
         ArrayAdapter headAdapter = ArrayAdapter.createFromResource(getContext(), R.array.community_header_notice, android.R.layout.simple_spinner_dropdown_item);
 
