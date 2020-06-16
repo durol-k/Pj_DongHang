@@ -1,11 +1,9 @@
-package profile;
+package com.capstone.donghang.profile;
 
 import android.content.Context;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,24 +13,25 @@ import com.capstone.donghang.R;
 
 import java.util.ArrayList;
 
-public class ProfilePostAdapter extends RecyclerView.Adapter<ProfilePostAdapter.Holder>{
+public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.Holder>{
 
 
-    ArrayList<PostData> dataLists;
+    ArrayList<String> title_list;
+    Context display;
 
 
 
-    public ProfilePostAdapter(ArrayList<PostData> dataLists){
-        this.dataLists = dataLists;
-
+    public ProfileAdapter(ArrayList<String> title_list, Context display){
+        this.title_list = title_list;
+        this.display = display;
     }
 
     @NonNull
     @Override
-    public ProfilePostAdapter.Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ProfileAdapter.Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         Context context = parent.getContext();
-        View view = LayoutInflater.from(context).inflate(R.layout.fragment_profile_post_item, parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.fragment_profile_main_item, parent,false);
         Holder holder = new Holder(view);
 
 
@@ -42,27 +41,20 @@ public class ProfilePostAdapter extends RecyclerView.Adapter<ProfilePostAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProfilePostAdapter.Holder holder, int position) {
+    public void onBindViewHolder(@NonNull ProfileAdapter.Holder holder, int position) {
 
         int pos = position;
-        holder.title.setText(dataLists.get(pos).getPost_title());
-        holder.content.setText(dataLists.get(pos).getPost_content());
-        //holder.img.setImageResource();
+        holder.title.setText(title_list.get(pos));
 
     }
 
     public class Holder extends RecyclerView.ViewHolder{
 
-        TextView title, content;
-        ImageView img;
-
+        TextView title;
 
         Holder(View view){
             super(view);
-            title = view.findViewById(R.id.post_title);
-            content = view.findViewById(R.id.post_content);
-            img = view.findViewById(R.id.profile_img);
-
+            title = view.findViewById(R.id.profile_item_title);
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -83,11 +75,11 @@ public class ProfilePostAdapter extends RecyclerView.Adapter<ProfilePostAdapter.
 
     @Override
     public int getItemCount() {
-        return dataLists.size();
+        return title_list.size();
     }
 
-    public void addItem(String title, String content){
-        dataLists.add(new PostData(title, content));
+    public void addItem(String title){
+        title_list.add(title);
     }
 
 

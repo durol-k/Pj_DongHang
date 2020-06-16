@@ -1,4 +1,4 @@
-package profile;
+package com.capstone.donghang.profile;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,25 +13,24 @@ import com.capstone.donghang.R;
 
 import java.util.ArrayList;
 
-public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.Holder>{
+public class ProfileCommentAdapter extends RecyclerView.Adapter<ProfileCommentAdapter.Holder>{
 
 
-    ArrayList<String> title_list;
-    Context display;
+    ArrayList<CommentData> dataLists;
 
 
 
-    public ProfileAdapter(ArrayList<String> title_list, Context display){
-        this.title_list = title_list;
-        this.display = display;
+    public ProfileCommentAdapter(ArrayList<CommentData> dataLists){
+        this.dataLists = dataLists;
+
     }
 
     @NonNull
     @Override
-    public ProfileAdapter.Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ProfileCommentAdapter.Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         Context context = parent.getContext();
-        View view = LayoutInflater.from(context).inflate(R.layout.fragment_profile_main_item, parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.fragment_profile_comment_item, parent,false);
         Holder holder = new Holder(view);
 
 
@@ -41,20 +40,26 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.Holder>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProfileAdapter.Holder holder, int position) {
+    public void onBindViewHolder(@NonNull ProfileCommentAdapter.Holder holder, int position) {
 
         int pos = position;
-        holder.title.setText(title_list.get(pos));
+        holder.title.setText(dataLists.get(pos).getPost_title());
+        holder.comment.setText(dataLists.get(pos).getComment_content());
 
     }
 
     public class Holder extends RecyclerView.ViewHolder{
 
-        TextView title;
+        TextView title, comment;
+
+
 
         Holder(View view){
             super(view);
-            title = view.findViewById(R.id.profile_item_title);
+            title = view.findViewById(R.id.post_title);
+            comment = view.findViewById(R.id.comment_content);
+
+
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -75,11 +80,11 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.Holder>{
 
     @Override
     public int getItemCount() {
-        return title_list.size();
+        return dataLists.size();
     }
 
-    public void addItem(String title){
-        title_list.add(title);
+    public void addItem(String title, String content){
+        dataLists.add(new CommentData(title, content));
     }
 
 

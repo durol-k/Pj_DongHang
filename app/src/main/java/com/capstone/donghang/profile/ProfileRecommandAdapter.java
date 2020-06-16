@@ -1,4 +1,4 @@
-package profile;
+package com.capstone.donghang.profile;
 
 import android.content.Context;
 import android.graphics.Color;

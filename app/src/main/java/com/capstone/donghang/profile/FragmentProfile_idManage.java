@@ -1,4 +1,4 @@
-package profile;
+package com.capstone.donghang.profile;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,19 +10,16 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.capstone.donghang.FragmentProfile;
 import com.capstone.donghang.R;
 
 import java.util.ArrayList;
 
-public class FragmentProfile_setting extends Fragment {
+public class FragmentProfile_idManage extends Fragment {
 
     ArrayList<CommentData> dataLists = new ArrayList<>();
     androidx.recyclerview.widget.RecyclerView recyclerView;
@@ -34,7 +31,7 @@ public class FragmentProfile_setting extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_profile_setting, container, false);
+        return inflater.inflate(R.layout.fragment_profile_id_manage, container, false);
     }
 
     @Override
@@ -47,11 +44,12 @@ public class FragmentProfile_setting extends Fragment {
         backBtn = getView().findViewById(R.id.back_btn);
 
 
+
+
         activity.setSupportActionBar(toolbar);
         ActionBar actionBar = activity.getSupportActionBar();
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setDisplayShowTitleEnabled(false);
-
 
 
         backBtn.setOnClickListener(new View.OnClickListener() {
@@ -60,7 +58,7 @@ public class FragmentProfile_setting extends Fragment {
                 Toast.makeText(getActivity(), "뒤로가기 눌림", Toast.LENGTH_SHORT).show();
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.remove(FragmentProfile_setting.this);
+                fragmentTransaction.remove(FragmentProfile_idManage.this);
                 fragmentTransaction.replace(R.id.frame_main, new FragmentProfile()).commit();
 
             }

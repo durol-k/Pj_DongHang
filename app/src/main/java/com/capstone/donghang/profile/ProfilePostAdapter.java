@@ -1,4 +1,4 @@
-package profile;
+package com.capstone.donghang.profile;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -14,24 +14,24 @@ import com.capstone.donghang.R;
 
 import java.util.ArrayList;
 
-public class ProfileCommentAdapter extends RecyclerView.Adapter<ProfileCommentAdapter.Holder>{
+public class ProfilePostAdapter extends RecyclerView.Adapter<ProfilePostAdapter.Holder>{
 
 
-    ArrayList<CommentData> dataLists;
+    ArrayList<PostData> dataLists;
 
 
 
-    public ProfileCommentAdapter(ArrayList<CommentData> dataLists){
+    public ProfilePostAdapter(ArrayList<PostData> dataLists){
         this.dataLists = dataLists;
 
     }
 
     @NonNull
     @Override
-    public ProfileCommentAdapter.Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ProfilePostAdapter.Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         Context context = parent.getContext();
-        View view = LayoutInflater.from(context).inflate(R.layout.fragment_profile_comment_item, parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.fragment_profile_post_item, parent,false);
         Holder holder = new Holder(view);
 
 
@@ -41,25 +41,26 @@ public class ProfileCommentAdapter extends RecyclerView.Adapter<ProfileCommentAd
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProfileCommentAdapter.Holder holder, int position) {
+    public void onBindViewHolder(@NonNull ProfilePostAdapter.Holder holder, int position) {
 
         int pos = position;
         holder.title.setText(dataLists.get(pos).getPost_title());
-        holder.comment.setText(dataLists.get(pos).getComment_content());
+        holder.content.setText(dataLists.get(pos).getPost_content());
+        //holder.img.setImageResource();
 
     }
 
     public class Holder extends RecyclerView.ViewHolder{
 
-        TextView title, comment;
-
+        TextView title, content;
+        ImageView img;
 
 
         Holder(View view){
             super(view);
             title = view.findViewById(R.id.post_title);
-            comment = view.findViewById(R.id.comment_content);
-
+            content = view.findViewById(R.id.post_content);
+            img = view.findViewById(R.id.profile_img);
 
 
             view.setOnClickListener(new View.OnClickListener() {
@@ -85,7 +86,7 @@ public class ProfileCommentAdapter extends RecyclerView.Adapter<ProfileCommentAd
     }
 
     public void addItem(String title, String content){
-        dataLists.add(new CommentData(title, content));
+        dataLists.add(new PostData(title, content));
     }
 
 

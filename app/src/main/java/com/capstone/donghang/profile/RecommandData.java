@@ -1,4 +1,4 @@
-package profile;
+package com.capstone.donghang.profile;
 
 public class RecommandData {
 
