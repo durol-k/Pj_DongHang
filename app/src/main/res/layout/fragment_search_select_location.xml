@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tvSSLName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="명지전문대"
+        android:textSize="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_margin="20dp"/>
+
+
+    <RatingBar
+        android:id="@+id/rbSSL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/ratingBarStyleSmall"
+        app:layout_constraintTop_toBottomOf="@id/tvSSLName"
+        app:layout_constraintLeft_toLeftOf="@id/tvSSLName"/>
+
+    <TextView
+        android:id="@+id/tvSSLSort"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="사립전문대학"
+        app:layout_constraintTop_toBottomOf="@id/rbSSL"
+        app:layout_constraintLeft_toLeftOf="@id/tvSSLName"
+        />
+
+    <TextView
+        android:id="@+id/tvSSLContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="서대문구에 있는 전문대학이다.1"
+        app:layout_constraintTop_toBottomOf="@id/tvSSLSort"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_margin="20dp"/>
+    <TextView
+        android:id="@+id/tvSSLAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="서울특별시 서대문구 가좌로 134(홍은동)"
+        app:layout_constraintTop_toBottomOf="@id/tvSSLContent"
+        app:layout_constraintLeft_toLeftOf="@+id/rbSSL"/>
+    <TextView
+        android:id="@+id/tvSSLTelnum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="02-xxx-xxx"
+        app:layout_constraintTop_toBottomOf="@id/tvSSLAddress"
+        app:layout_constraintLeft_toLeftOf="@id/tvSSLName"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvSSL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvSSLTelnum"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="20dp"/>
+
+    <fragment
+        android:id="@+id/mapSSL"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        class="com.google.android.gms.maps.MapFragment"
+        map:cameraTargetLat="37.584"
+        map:cameraTargetLng="126.925"
+        map:cameraZoom="15"
+        app:layout_constraintTop_toBottomOf="@id/rcvSSL"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

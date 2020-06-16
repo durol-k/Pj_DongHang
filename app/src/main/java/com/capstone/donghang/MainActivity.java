@@ -9,14 +9,13 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.capstone.donghang.plan.FragmentPlan;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
-    public Fragment fragmentPlan, fragmentSearch, fragmentCommunity, fragmentProfile;
+    Fragment fragmentPlan, fragmentSearch, fragmentCommunity, fragmentProfile;
     Fragment currentFragment;
-    public FragmentManager fragmentManager;
+    FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
 
     @Override
