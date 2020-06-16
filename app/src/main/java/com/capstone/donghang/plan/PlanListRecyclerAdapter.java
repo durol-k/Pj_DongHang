@@ -7,10 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 
 import com.capstone.donghang.R;
 
@@ -30,12 +30,6 @@ public class PlanListRecyclerAdapter extends RecyclerView.Adapter<PlanListRecycl
             this.title = itemView.findViewById(R.id.planlist_recycler_item_title);
             this.date = itemView.findViewById(R.id.planlist_recycler_item_date);
             this.tagLayout = itemView.findViewById(R.id.planlist_recycler_item_tagLayout);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(context, "clicked", Toast.LENGTH_SHORT).show();
-                }
-            });
         }
     }
 
