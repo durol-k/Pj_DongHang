@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="#656464"
+    >
+
+    <Spinner
+        android:id="@+id/community_write_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/community_white"
+        android:spinnerMode="dialog"
+        android:prompt="@string/cat"
+        />
+
+    <Spinner
+        android:layout_marginTop="2dp"
+        android:id="@+id/community_write_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/community_white"
+        android:spinnerMode="dialog"
+        android:prompt="@string/head"
+        />
+
+    <EditText
+        android:padding="10dp"
+        android:id="@+id/comminity_write_title"
+        android:layout_marginTop="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/community_white"
+        android:hint="제목을 입력해주세요" />
+
+    <EditText
+        android:padding="10dp"
+        android:id="@+id/comminity_write_content"
+        android:layout_marginTop="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:background="@color/community_white"
+        android:hint="내용을 입력해주세요"
+        android:gravity="top"
+        />
+
+    <EditText
+        android:padding="10dp"
+        android:id="@+id/comminity_write_tag"
+        android:layout_marginTop="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/community_white"
+        android:hint="#태그"
+        />
+
+</LinearLayout>
