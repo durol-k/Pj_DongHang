@@ -33,9 +33,6 @@ public class ProfileCommentAdapter extends RecyclerView.Adapter<ProfileCommentAd
         View view = LayoutInflater.from(context).inflate(R.layout.fragment_profile_comment_item, parent,false);
         Holder holder = new Holder(view);
 
-
-
-
         return holder;
     }
 
@@ -59,22 +56,6 @@ public class ProfileCommentAdapter extends RecyclerView.Adapter<ProfileCommentAd
             title = view.findViewById(R.id.post_title);
             comment = view.findViewById(R.id.comment_content);
 
-
-
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int pos =  getAdapterPosition();
-                    if(pos != RecyclerView.NO_POSITION){
-                        if(mListener != null){
-                            mListener.onItemClick(v, pos);
-                        }
-                    }
-                }
-            });
-
-
-
         }
     }
 
@@ -88,15 +69,4 @@ public class ProfileCommentAdapter extends RecyclerView.Adapter<ProfileCommentAd
     }
 
 
-    /// 리스너
-    public interface OnItemClcikListener{
-        void onItemClick(View view, int pos);
-    }
-
-    private OnItemClcikListener mListener = null;
-
-    public void setOnItemClickListener(OnItemClcikListener listener){
-        this.mListener = listener;
-
-    }
 }

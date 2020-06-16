@@ -23,8 +23,6 @@ public class FragmentProfile_setting extends Fragment {
 
     ArrayList<CommentData> dataLists = new ArrayList<>();
     androidx.recyclerview.widget.RecyclerView recyclerView;
-
-    androidx.appcompat.widget.Toolbar toolbar;
     AppCompatActivity activity;
     ImageView backBtn;
 
@@ -38,30 +36,6 @@ public class FragmentProfile_setting extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 
         activity = (AppCompatActivity)getActivity();
-
-
-        toolbar = getView().findViewById(R.id.toolbar);
-        backBtn = getView().findViewById(R.id.back_btn);
-
-
-        activity.setSupportActionBar(toolbar);
-        ActionBar actionBar = activity.getSupportActionBar();
-        actionBar.setDisplayShowCustomEnabled(true);
-        actionBar.setDisplayShowTitleEnabled(false);
-
-
-
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "뒤로가기 눌림", Toast.LENGTH_SHORT).show();
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.remove(FragmentProfile_setting.this);
-                fragmentTransaction.replace(R.id.frame_main, new FragmentProfile()).commit();
-
-            }
-        });
 
         super.onActivityCreated(savedInstanceState);
     }

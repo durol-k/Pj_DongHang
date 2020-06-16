@@ -69,14 +69,4 @@ public class Fragment_Community_ItemInfo extends Fragment {
 
         return view;
     }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        fragmentManager.popBackStack();
-        fragmentManager.beginTransaction().remove(Fragment_Community_ItemInfo.this);
-    }
-
 }

@@ -29,7 +29,6 @@ public class FragmentProfile_recommend extends Fragment {
     androidx.appcompat.widget.Toolbar toolbar;
     ProfileRecommandAdapter recommandAdapter;
     AppCompatActivity activity;
-    ImageView backBtn, settingBtn;
 
 
     @Nullable
@@ -42,11 +41,6 @@ public class FragmentProfile_recommend extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 
         activity = (AppCompatActivity)getActivity();
-
-
-        toolbar = getView().findViewById(R.id.toolbar);
-        backBtn = getView().findViewById(R.id.back_btn);
-        settingBtn = getView().findViewById(R.id.setting_btn);
 
         recyclerView = getView().findViewById(R.id.post_recycleView);
 
@@ -66,27 +60,7 @@ public class FragmentProfile_recommend extends Fragment {
         recommandAdapter.addItem("동행자4", "부산");
 
 
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "뒤로가기 눌림", Toast.LENGTH_SHORT).show();
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.remove(FragmentProfile_recommend.this);
-                fragmentTransaction.replace(R.id.frame_main, new FragmentProfile()).commit();
 
-            }
-        });
-
-        settingBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder dlg = new AlertDialog.Builder(getActivity());
-                dlg.setTitle("동행자 관련 설정 대화상자");
-                dlg.setMessage("희망여행지와 날짜 설정할 예정");
-                dlg.show();
-            }
-        });
 
         super.onActivityCreated(savedInstanceState);
     }

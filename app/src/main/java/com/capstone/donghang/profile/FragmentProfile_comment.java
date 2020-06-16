@@ -40,17 +40,7 @@ public class FragmentProfile_comment extends Fragment {
 
         activity = (AppCompatActivity)getActivity();
 
-
-        toolbar = getView().findViewById(R.id.toolbar);
-        backBtn = getView().findViewById(R.id.back_btn);
-
         recyclerView = getView().findViewById(R.id.post_recycleView);
-
-
-        activity.setSupportActionBar(toolbar);
-        ActionBar actionBar = activity.getSupportActionBar();
-        actionBar.setDisplayShowCustomEnabled(true);
-        actionBar.setDisplayShowTitleEnabled(false);
 
         profileCommentAdapter = new ProfileCommentAdapter(dataLists);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -64,18 +54,6 @@ public class FragmentProfile_comment extends Fragment {
         profileCommentAdapter.addItem("게시글6", "댓글6");
         profileCommentAdapter.addItem("게시글7", "댓글7");
 
-
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "뒤로가기 눌림", Toast.LENGTH_SHORT).show();
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.remove(FragmentProfile_comment.this);
-                fragmentTransaction.replace(R.id.frame_main, new FragmentProfile()).commit();
-
-            }
-        });
 
         super.onActivityCreated(savedInstanceState);
     }

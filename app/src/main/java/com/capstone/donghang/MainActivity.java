@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         fragmentCommunity = new Fragment_Community_MainList();
         fragmentProfile = new FragmentProfile();
 
-
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.frame_main, fragmentPlan).commit();

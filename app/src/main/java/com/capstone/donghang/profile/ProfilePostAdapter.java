@@ -62,21 +62,6 @@ public class ProfilePostAdapter extends RecyclerView.Adapter<ProfilePostAdapter.
             content = view.findViewById(R.id.post_content);
             img = view.findViewById(R.id.profile_img);
 
-
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int pos =  getAdapterPosition();
-                    if(pos != RecyclerView.NO_POSITION){
-                        if(mListener != null){
-                            mListener.onItemClick(v, pos);
-                        }
-                    }
-                }
-            });
-
-
-
         }
     }
 
@@ -89,16 +74,4 @@ public class ProfilePostAdapter extends RecyclerView.Adapter<ProfilePostAdapter.
         dataLists.add(new PostData(title, content));
     }
 
-
-    /// 리스너
-    public interface OnItemClcikListener{
-        void onItemClick(View view, int pos);
-    }
-
-    private OnItemClcikListener mListener = null;
-
-    public void setOnItemClickListener(OnItemClcikListener listener){
-        this.mListener = listener;
-
-    }
 }

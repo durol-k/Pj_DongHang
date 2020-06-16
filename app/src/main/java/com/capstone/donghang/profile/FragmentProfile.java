@@ -35,8 +35,9 @@ public class FragmentProfile extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
+       ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_profile, container, false);
 
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        return rootView;
 
 
     }
@@ -44,14 +45,12 @@ public class FragmentProfile extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 
-        super.onActivityCreated(savedInstanceState);
-
         userImg = getView().findViewById(R.id.profile_img);
         id_manage = getView().findViewById(R.id.profile_manage);
 
         profile_recycleView = getView().findViewById(R.id.profile_recycleView);
         profile_recycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        profileAdapter = new ProfileAdapter(profile_title_list, getActivity());
+        profileAdapter = new ProfileAdapter(profile_title_list);
         profile_recycleView.setAdapter(profileAdapter);
 
 
@@ -60,53 +59,7 @@ public class FragmentProfile extends Fragment {
         profileAdapter.addItem(getString(R.string.myComment));
         profileAdapter.addItem(getString(R.string.profile_setting));
 
-        id_manage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentProfile_idManage fragmentProfileIdManage = new FragmentProfile_idManage();
-
-                currentFragment = fragmentProfileIdManage;
-
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.replace(R.id.frame_main, currentFragment).commit();
-
-
-            }
-        });
-
-
-        //맨 위 메뉴(사진있는 것) 뺀 나머지 메뉴 이벤트 처리
-        profileAdapter.setOnItemClickListener(new ProfileAdapter.OnItemClcikListener() {
-            @Override
-            public void onItemClick(View view, int pos) {
-                TextView textView = view.findViewById(R.id.profile_item_title);
-                String title = textView.getText().toString();
-                Toast.makeText(getContext(), title + "눌림", Toast.LENGTH_SHORT).show();
-
-                FragmentProfile_recommend fragmentProfileRecommend = new FragmentProfile_recommend();
-                FragmentProfile_post fragmentProfilePost = new FragmentProfile_post();
-                FragmentProfile_comment fragmentProfileComment = new FragmentProfile_comment();
-                FragmentProfile_setting fragmentProfileSetting = new FragmentProfile_setting();
-
-                if (title.equals(getString(R.string.recommend_people))) {
-                    currentFragment = fragmentProfileRecommend;
-                } else if (title.equals(getString(R.string.myPost))) {
-                    currentFragment = fragmentProfilePost;
-                } else if (title.equals(getString(R.string.myComment))) {
-                    currentFragment = fragmentProfileComment;
-                } else if (title.equals(getString(R.string.profile_setting))) {
-                    currentFragment = fragmentProfileSetting;
-                }
-
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.replace(R.id.frame_main, currentFragment).commit();
-
-            }
-        });
+        super.onActivityCreated(savedInstanceState);
 
 
     }

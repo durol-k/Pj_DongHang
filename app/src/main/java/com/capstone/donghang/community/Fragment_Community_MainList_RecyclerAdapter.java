@@ -80,24 +80,24 @@ public class Fragment_Community_MainList_RecyclerAdapter extends RecyclerView.Ad
             viewCountTv = itemView.findViewById(R.id.community_mainitem_viewCount);
             iconView = itemView.findViewById(R.id.community_icon);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int pos = getAdapterPosition();
-                    int icon = itemList.get(pos).getIcon();
-                    int viewCount = itemList.get(pos).getView();
-                    String id = itemList.get(pos).getId();
-                    String time = itemList.get(pos).getTime();
-                    String title = itemList.get(pos).getTitle();
-                    String content = itemList.get(pos).getContent();
-
-                    Fragment_Community_ItemInfo fcd = new Fragment_Community_ItemInfo(context, icon, viewCount, id, time, title, content);
-                    FragmentTransaction transaction = ((MainActivity) context).getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.frame_main, fcd);
-                    transaction.addToBackStack(null);
-                    transaction.commit();
-                }
-            });
+//            itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    int pos = getAdapterPosition();
+//                    int icon = itemList.get(pos).getIcon();
+//                    int viewCount = itemList.get(pos).getView();
+//                    String id = itemList.get(pos).getId();
+//                    String time = itemList.get(pos).getTime();
+//                    String title = itemList.get(pos).getTitle();
+//                    String content = itemList.get(pos).getContent();
+//
+//                    Fragment_Community_ItemInfo fcd = new Fragment_Community_ItemInfo(context, icon, viewCount, id, time, title, content);
+//                    FragmentTransaction transaction = ((MainActivity) context).getSupportFragmentManager().beginTransaction();
+//                    transaction.replace(R.id.frame_main, fcd);
+//                    transaction.addToBackStack(null);
+//                    transaction.commit();
+//                }
+//            });
         }
     }
 }

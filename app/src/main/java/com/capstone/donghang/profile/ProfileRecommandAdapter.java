@@ -73,20 +73,6 @@ public class ProfileRecommandAdapter extends RecyclerView.Adapter<ProfileRecomma
             textview("여행장소3", context, places_layout);
 
 
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int pos =  getAdapterPosition();
-                    if(pos != RecyclerView.NO_POSITION){
-                        if(mListener != null){
-                            mListener.onItemClick(v, pos);
-                        }
-                    }
-                }
-            });
-
-
-
         }
     }
 
@@ -114,16 +100,4 @@ public class ProfileRecommandAdapter extends RecyclerView.Adapter<ProfileRecomma
         parent.addView(view1);
     }
 
-
-    /// 리스너
-    public interface OnItemClcikListener{
-        void onItemClick(View view, int pos);
-    }
-
-    private OnItemClcikListener mListener = null;
-
-    public void setOnItemClickListener(OnItemClcikListener listener){
-        this.mListener = listener;
-
-    }
 }
