@@ -3,6 +3,8 @@ package com.capstone.donghang.profile;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -11,12 +13,14 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.capstone.donghang.MainActivity;
 import com.capstone.donghang.R;
 
 import java.util.ArrayList;
@@ -25,7 +29,7 @@ public class FragmentProfile extends Fragment {
 
     RecyclerView profile_recycleView;
     ProfileAdapter profileAdapter;
-    ArrayList<String> profile_title_list = new ArrayList<>();
+    ArrayList<String> profile_title_list;
     Fragment currentFragment;
     ImageView userImg; // 프로필 사진
     TextView id_manage; // 계정관리(텍스트)
@@ -36,6 +40,7 @@ public class FragmentProfile extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
        ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_profile, container, false);
+       profile_title_list = new ArrayList<>(); // 선언과 동시에 초기화화면 아이템이 계속 추가되는 오류발생
 
         return rootView;
 

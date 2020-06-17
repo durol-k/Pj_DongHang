@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 public class FragmentProfile_post extends Fragment {
 
-    ArrayList<PostData> dataLists = new ArrayList<>();
+    ArrayList<PostData> dataLists;
     androidx.recyclerview.widget.RecyclerView recyclerView;
     ProfilePostAdapter postAdapter;
 
@@ -35,8 +35,7 @@ public class FragmentProfile_post extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-
-
+        dataLists = new ArrayList<>();
 
         return inflater.inflate(R.layout.fragment_profile_post, container, false);
     }
