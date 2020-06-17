@@ -2,6 +2,8 @@ package com.capstone.donghang.community;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -27,6 +29,9 @@ public class Fragment_Community_MainList extends Fragment {
     FloatingActionButton fab;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        setHasOptionsMenu(true);
+
         itemList = new ArrayList<>();
         //AppCompatActivity appCompatActivity = (AppCompatActivity) getActivity();
         View view = inflater.inflate(R.layout.fragment_community_mainlist, container, false);
@@ -91,4 +96,15 @@ public class Fragment_Community_MainList extends Fragment {
 
      */
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        getActivity().invalidateOptionsMenu();
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.community_main_toolbar_menu, menu);
+    }
 }

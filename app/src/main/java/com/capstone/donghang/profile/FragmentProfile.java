@@ -39,8 +39,10 @@ public class FragmentProfile extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-       ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_profile, container, false);
-       profile_title_list = new ArrayList<>(); // 선언과 동시에 초기화화면 아이템이 계속 추가되는 오류발생
+        setHasOptionsMenu(true);
+
+        ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_profile, container, false);
+        profile_title_list = new ArrayList<>(); // 선언과 동시에 초기화화면 아이템이 계속 추가되는 오류발생
 
         return rootView;
 
@@ -68,7 +70,17 @@ public class FragmentProfile extends Fragment {
 
 
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+        getActivity().invalidateOptionsMenu();
+    }
 
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.profile_recommand_menu, menu);
+    }
 
 }
 
