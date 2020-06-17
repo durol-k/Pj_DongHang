@@ -2,6 +2,8 @@ package com.capstone.donghang.Search.AfterSearch;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -33,6 +35,8 @@ public class FragmentAfterSearch extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_search_after, container, false);
+
+        setHasOptionsMenu(true);
 
         tabLayout = view.findViewById(R.id.tab_layout);
         rcv = view.findViewById(R.id.rcvTab);
@@ -90,5 +94,16 @@ public class FragmentAfterSearch extends Fragment {
                 rcv.setAdapter(adt);
                 break;
         }
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        getActivity().invalidateOptionsMenu();
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.search_menu, menu);
     }
 }
