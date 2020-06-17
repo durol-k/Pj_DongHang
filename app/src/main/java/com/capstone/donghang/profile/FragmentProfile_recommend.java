@@ -2,6 +2,8 @@ package com.capstone.donghang.profile;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -17,6 +19,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.capstone.donghang.MainActivity;
 import com.capstone.donghang.profile.FragmentProfile;
 import com.capstone.donghang.R;
 
@@ -24,7 +27,7 @@ import java.util.ArrayList;
 
 public class FragmentProfile_recommend extends Fragment {
 
-    ArrayList<RecommandData> dataLists = new ArrayList<>();
+    ArrayList<RecommandData> dataLists;
     androidx.recyclerview.widget.RecyclerView recyclerView;
     androidx.appcompat.widget.Toolbar toolbar;
     ProfileRecommandAdapter recommandAdapter;
@@ -34,6 +37,12 @@ public class FragmentProfile_recommend extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        ActionBar actionBar = ((MainActivity) getActivity()).getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        setHasOptionsMenu(true);
+
+        dataLists = new ArrayList<>();
         return inflater.inflate(R.layout.fragment_profile_recommend, container, false);
     }
 
@@ -63,5 +72,11 @@ public class FragmentProfile_recommend extends Fragment {
 
 
         super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.profile_recommand_menu, menu);
     }
 }

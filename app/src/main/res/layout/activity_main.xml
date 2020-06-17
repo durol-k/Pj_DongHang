@@ -6,11 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/main_toolbar"
+        android:background="#9CCDF4"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <FrameLayout
         android:id="@+id/frame_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="?attr/actionBarSize" />
+        android:layout_marginTop="?attr/actionBarSize" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"

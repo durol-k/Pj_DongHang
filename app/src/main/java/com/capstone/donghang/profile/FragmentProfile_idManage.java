@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class FragmentProfile_idManage extends Fragment {
 
-    ArrayList<CommentData> dataLists = new ArrayList<>();
+    ArrayList<String> dataLists;
     androidx.recyclerview.widget.RecyclerView recyclerView;
     AppCompatActivity activity;
     ImageView backBtn;
@@ -29,6 +29,7 @@ public class FragmentProfile_idManage extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        dataLists = new ArrayList<>();
         return inflater.inflate(R.layout.fragment_profile_id_manage, container, false);
     }
 

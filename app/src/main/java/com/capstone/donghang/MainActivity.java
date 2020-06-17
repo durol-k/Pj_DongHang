@@ -21,11 +21,15 @@ public class MainActivity extends AppCompatActivity {
     Fragment currentFragment;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
+    androidx.appcompat.widget.Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        toolbar = findViewById(R.id.main_toolbar);
+        setSupportActionBar(toolbar);
 
         //set fragment
         fragmentPlan = new FragmentPlan();

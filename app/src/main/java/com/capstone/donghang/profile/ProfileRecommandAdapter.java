@@ -23,7 +23,6 @@ public class ProfileRecommandAdapter extends RecyclerView.Adapter<ProfileRecomma
     ArrayList<RecommandData> dataLists;
 
 
-
     public ProfileRecommandAdapter(ArrayList<RecommandData> dataLists){
         this.dataLists = dataLists;
 
@@ -46,9 +45,8 @@ public class ProfileRecommandAdapter extends RecyclerView.Adapter<ProfileRecomma
     public void onBindViewHolder(@NonNull ProfileRecommandAdapter.Holder holder, int position) {
 
         int pos = position;
-        holder.name.setText(dataLists.get(pos).getName());
-        holder.location.setText(dataLists.get(pos).getLocation());
-
+        holder.name.setText(dataLists.get(pos).getName()); // 추천인 이름
+        holder.location.setText(dataLists.get(pos).getLocation()); // 추천인의 사는 장소
 
         //holder.img.setImageResource();
 
@@ -58,7 +56,7 @@ public class ProfileRecommandAdapter extends RecyclerView.Adapter<ProfileRecomma
 
         ImageView img;
         TextView name, location;
-        LinearLayout places_layout;
+        LinearLayout places_layout; // 동적인 텍스트 뷰를 넣기 위한 레이아웃
 
 
 
@@ -68,9 +66,10 @@ public class ProfileRecommandAdapter extends RecyclerView.Adapter<ProfileRecomma
             name = view.findViewById(R.id.user_name);
             location = view.findViewById(R.id.user_location);
             places_layout = view.findViewById(R.id.trip_place_list);
+
             textview("여행장소1", context, places_layout);
             textview("여행장소2", context, places_layout);
-            textview("여행장소3", context, places_layout);
+            textview("여행장소3", context, places_layout); // 이후 반복문으로 바꾸어 동적으로 텍스트 뷰 추가
 
 
         }
