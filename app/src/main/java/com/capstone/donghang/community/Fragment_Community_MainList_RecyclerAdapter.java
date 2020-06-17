@@ -1,7 +1,6 @@
 package com.capstone.donghang.community;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,14 +8,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.capstone.donghang.MainActivity;
 import com.capstone.donghang.R;
 
 import java.util.List;
 
+/**
+ 게시글 어댑터
+ */
 public class Fragment_Community_MainList_RecyclerAdapter extends RecyclerView.Adapter<Fragment_Community_MainList_RecyclerAdapter.ViewHolder> {
     private Context context;
     private List<Fragment_Community_MainListItem> itemList;
@@ -80,24 +80,27 @@ public class Fragment_Community_MainList_RecyclerAdapter extends RecyclerView.Ad
             viewCountTv = itemView.findViewById(R.id.community_mainitem_viewCount);
             iconView = itemView.findViewById(R.id.community_icon);
 
-//            itemView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    int pos = getAdapterPosition();
-//                    int icon = itemList.get(pos).getIcon();
-//                    int viewCount = itemList.get(pos).getView();
-//                    String id = itemList.get(pos).getId();
-//                    String time = itemList.get(pos).getTime();
-//                    String title = itemList.get(pos).getTitle();
-//                    String content = itemList.get(pos).getContent();
-//
-//                    Fragment_Community_ItemInfo fcd = new Fragment_Community_ItemInfo(context, icon, viewCount, id, time, title, content);
-//                    FragmentTransaction transaction = ((MainActivity) context).getSupportFragmentManager().beginTransaction();
-//                    transaction.replace(R.id.frame_main, fcd);
-//                    transaction.addToBackStack(null);
-//                    transaction.commit();
-//                }
-//            });
+            /** 각각의 게시글 클릭 이벤트
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                   int pos = getAdapterPosition();
+                    int icon = itemList.get(pos).getIcon();
+                    int viewCount = itemList.get(pos).getView();
+                  String id = itemList.get(pos).getId();
+                  String time = itemList.get(pos).getTime();
+                   String title = itemList.get(pos).getTitle();
+                  String content = itemList.get(pos).getContent();
+
+                   Fragment_Community_ItemInfo fcd = new Fragment_Community_ItemInfo(context, icon, viewCount, id, time, title, content);
+                  FragmentTransaction transaction = ((MainActivity) context).getSupportFragmentManager().beginTransaction();
+                  transaction.replace(R.id.frame_main, fcd);
+                   transaction.addToBackStack(null);
+                  transaction.commit();
+              }
+          });
+             **/
+
         }
     }
 }

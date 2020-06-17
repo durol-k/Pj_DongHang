@@ -5,6 +5,8 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     tools:openDrawer="end"
+    android:id="@+id/community_drawer"
+
     >
 
 
@@ -19,8 +21,7 @@
         android:layout_gravity="end"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/fragment_community_nav_header"
-        app:menu="@menu/community_menu" />
-
+        app:menu="@menu/community_navigation_menu" />
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

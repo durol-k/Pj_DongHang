@@ -27,7 +27,6 @@
         android:src="@drawable/ic_person_material_design"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/community_detail_title"
-        android:background="@drawable/community_detail_border_round"
         />
 
     <TextView

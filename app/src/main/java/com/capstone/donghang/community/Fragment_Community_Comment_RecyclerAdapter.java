@@ -14,6 +14,9 @@ import com.capstone.donghang.R;
 
 import java.util.List;
 
+/**
+ 댓글 어댑터
+ */
 public class Fragment_Community_Comment_RecyclerAdapter extends RecyclerView.Adapter<Fragment_Community_Comment_RecyclerAdapter.ViewHolder> {
     Context context;
     List<Fragment_Community_Comment_Item> commentList;

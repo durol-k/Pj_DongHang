@@ -1,5 +1,8 @@
 package com.capstone.donghang.community;
 
+/**
+ 댓글에 대한 정보 담는 클래스
+ */
 public class Fragment_Community_Comment_Item {
     private String id, time, content;
     private int icon;
