@@ -1,5 +1,9 @@
 package com.capstone.donghang.community;
 
+/**
+ 게시글 정보 담는 클래스
+ */
+
 public class Fragment_Community_MainListItem {
     private String id;
     private String time;

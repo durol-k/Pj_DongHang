@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.capstone.donghang.R;
@@ -17,7 +16,7 @@ import com.capstone.donghang.R;
 import java.util.ArrayList;
 
 /**
- * A simple {@link Fragment} subclass.
+ 각 게시글 상세보기 프래그먼트
  */
 public class Fragment_Community_ItemInfo extends Fragment {
         private Context context;
