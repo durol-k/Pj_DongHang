@@ -1,8 +1,11 @@
 package com.capstone.donghang.plan;
 
-public class RecyclerItem {
+import java.util.List;
+
+public class ItemPlanDetail {
     private  String title;
     private String period;
+    List item;
 
     public String getTitle() {
         return title;
@@ -20,7 +23,7 @@ public class RecyclerItem {
         this.period = period;
     }
 
-    public RecyclerItem(String title, String period) {
+    public ItemPlanDetail(String title, String period) {
         this.title = title;
         this.period = period;
     }

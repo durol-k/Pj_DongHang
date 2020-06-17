@@ -2,6 +2,7 @@ package com.capstone.donghang;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -21,11 +22,15 @@ public class MainActivity extends AppCompatActivity {
     Fragment currentFragment;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        toolbar = findViewById(R.id.main_toolbar);
+        setSupportActionBar(toolbar);
 
         //set fragment
         fragmentPlan = new FragmentPlan();

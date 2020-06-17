@@ -12,11 +12,11 @@ import com.capstone.donghang.R;
 
 import java.util.ArrayList;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.CustomViewHolder> {
+public class RecyclerAdapterPlanDetail extends RecyclerView.Adapter<RecyclerAdapterPlanDetail.CustomViewHolder> {
 
-    private ArrayList<RecyclerItem> list;
+    private ArrayList<ItemPlanDetail> list;
 
-    public RecyclerAdapter(ArrayList<RecyclerItem> list) {
+    public RecyclerAdapterPlanDetail(ArrayList<ItemPlanDetail> list) {
         this.list = list;
     }
 
@@ -32,7 +32,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Custom
 
     @NonNull
     @Override
-    public RecyclerAdapter.CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecyclerAdapterPlanDetail.CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.plan_detail_recycler_item, parent, false);
         CustomViewHolder viewHolder = new CustomViewHolder(view);
 

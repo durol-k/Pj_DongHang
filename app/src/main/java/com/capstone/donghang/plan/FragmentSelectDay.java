@@ -15,7 +15,8 @@ public class FragmentSelectDay extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.fragment_plan_detail, container, false);
 
-        return inflater.inflate(R.layout.fragment_plan_add_date, container, false);
+        return root;
     }
 }
