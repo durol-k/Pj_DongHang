@@ -18,8 +18,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
-    Fragment fragmentPlan, fragmentSearch, fragmentCommunity, fragmentProfile;
-    Fragment currentFragment;
+    public static Fragment fragmentPlan, fragmentSearch, fragmentCommunity, fragmentProfile;
+    public static Fragment currentFragment;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     Toolbar toolbar;

@@ -18,15 +18,15 @@ import java.util.ArrayList;
 /**
  각 게시글 상세보기 프래그먼트
  */
-public class Fragment_Community_ItemInfo extends Fragment {
+public class Fragment_Community_DetailInfo extends Fragment {
         private Context context;
-        private int icon,viewCount;
+        private int icon,viewCount,img;
         private String id,time,title,content;
 
         TextView titleTv, idTv, timeTv, viewCountTv, contentTv;
-        ImageView iconView;
+        ImageView iconView,imageView;
 
-    public Fragment_Community_ItemInfo(Context context, int icon, int viewCount, String id, String time, String title, String content) {
+    public Fragment_Community_DetailInfo(Context context, int icon, int viewCount, String id, String time, String title, String content, int img) {
         this.context = context;
         this.icon = icon;
         this.viewCount = viewCount;
@@ -34,18 +34,20 @@ public class Fragment_Community_ItemInfo extends Fragment {
         this.time = time;
         this.title = title;
         this.content = content;
+        this.img = img;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_community_item_info, container, false);
+        View view = inflater.inflate(R.layout.fragment_community_detail_info, container, false);
         titleTv = view.findViewById(R.id.community_detail_title);
         iconView = view.findViewById(R.id.community_detail_icon);
         idTv = view.findViewById(R.id.community_detail_nickname);
         timeTv = view.findViewById(R.id.community_detail_time);
         contentTv = view.findViewById(R.id.community_detail_content);
         viewCountTv = view.findViewById(R.id.community_detail_viewCount);
+        imageView = view.findViewById(R.id.community_detail_imageView);
 
         titleTv.setText(title);
         iconView.setImageResource(icon);
@@ -53,7 +55,8 @@ public class Fragment_Community_ItemInfo extends Fragment {
         timeTv.setText(time);
         contentTv.setText(content);
         viewCountTv.setText(String.valueOf(viewCount));
-
+        if(img !=0) imageView.setVisibility(View.VISIBLE);
+        imageView.setImageResource(img);
 
         ArrayList<Fragment_Community_Comment_Item> commentList = new ArrayList<>();
 

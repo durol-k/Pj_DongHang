@@ -13,8 +13,9 @@
     <string name="myPost">내가 작성한 글</string>
 
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO:커뮤니티 -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="cat">게시판 선택</string>
     <string name="head">머리말 선택</string>
+
 </resources>
