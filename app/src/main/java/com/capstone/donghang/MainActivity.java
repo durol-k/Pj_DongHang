@@ -38,9 +38,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentCommunity = new Fragment_Community_MainList();
         fragmentProfile = new FragmentProfile();
 
-        fragmentManager = getSupportFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.frame_main, fragmentPlan).commit();
+        replaceFragment(fragmentPlan);
 
         //BottomNavigationView item select event
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
@@ -66,11 +64,16 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 //replace fragment
-                fragmentManager = getSupportFragmentManager();
-                fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.frame_main, currentFragment).commit();
+                replaceFragment(currentFragment);
                 return true;
             }
         });
+    }
+    public void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.addToBackStack(null);
+
+        fragmentTransaction.replace(R.id.frame_main, fragment).commit();      // Fragment로 사용할 MainActivity내의 layout공간을 선택합니다.
     }
 }
