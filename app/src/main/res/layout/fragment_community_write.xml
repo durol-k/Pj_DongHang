@@ -43,11 +43,12 @@
         android:id="@+id/community_write_content"
         android:layout_marginTop="2dp"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="0dp"
         android:background="@color/community_white"
         android:hint="내용을 입력해주세요"
         android:gravity="top"
         app:layout_constraintTop_toBottomOf="@+id/community_write_title"
+        app:layout_constraintBottom_toTopOf="@+id/community_write_tag"
         />
 
     <EditText

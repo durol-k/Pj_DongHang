@@ -34,16 +34,17 @@ import java.util.List;
  커뮤니티 메인화면 프래그먼트(게시글 리스트보이는 화면)
  */
 public class Fragment_Community_MainList extends Fragment {
-    List<Fragment_Community_MainListItem> itemList;
+    List<Fragment_Community_MainListItem> itemList = new ArrayList<>();
     DrawerLayout drawerLayout;
     FloatingActionButton fab;
-    ArrayList<String> writed_item;
     public Fragment_Community_MainList() {
-
+        itemList.add(new Fragment_Community_MainListItem("ironman", "16:16", "여행 후기", "춘천 여행 다녀와서 쓴 후기입니다. 총 여행기간은 3박4일입니다.", null, 30, 0, 300, R.drawable.community_icon));
+        itemList.add(new Fragment_Community_MainListItem("superman", "10:54", "제주도 여행 가실분 구합니다", "2020년 8월2일~8월6일 4박 5일동안 제주도 가실 동행자 구합니다 ~ 쪽지/댓글주세요", null, 10, 0, 34, R.drawable.community_icon));
+        itemList.add(new Fragment_Community_MainListItem("batman", "01:23", "안녕하세요", "안녕하세요. 명지전문대학교 재학중인 홍길동입니다. 저와 함께 여행 가실 분 구합니다^^", R.drawable.apple, 2, 0, 15, R.drawable.community_icon));
     }
 
-    public Fragment_Community_MainList(ArrayList<String> writed_item) {
-        this.writed_item = writed_item;
+    public Fragment_Community_MainList(List<Fragment_Community_MainListItem> itemList) { // 글쓰기화면에서 객체 생성시 사용하는 생성자 쓴 글에 대한 정보를 담고 있음
+        this.itemList = itemList;
     }
 
     @Override
@@ -51,7 +52,6 @@ public class Fragment_Community_MainList extends Fragment {
 
         setHasOptionsMenu(true);
 
-        itemList = new ArrayList<>();
         final View view = inflater.inflate(R.layout.fragment_community_mainlist, container, false);
         drawerLayout = view.findViewById(R.id.community_drawer);
         fab = view.findViewById(R.id.community_fab);
@@ -81,7 +81,7 @@ public class Fragment_Community_MainList extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Fragment_Community_Write write_fragment = new Fragment_Community_Write();
+                Fragment_Community_Write write_fragment = new Fragment_Community_Write(itemList);
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_main, write_fragment);
                 transaction.commit();
@@ -92,15 +92,7 @@ public class Fragment_Community_MainList extends Fragment {
     }
 
     void initData() {
-        String str = "명지전문대명지전문대명지전문대명지전문대명지전문대명지전문대명지전문대";
-        if ( writed_item !=null)
-          itemList.add(new Fragment_Community_MainListItem("id123", "1111", writed_item.get(2), writed_item.get(3), null, 0, 0, 0, R.drawable.community_icon));
 
-         itemList.add(new Fragment_Community_MainListItem("id" , "00:00", "제목",str, R.drawable.apple,0,0,0, R.drawable.community_icon));
-
-        for(int i = 0 ; i < 10 ; i ++) {
-            itemList.add(new Fragment_Community_MainListItem("id" + i, "00:00", "제목" + i, "내용" + i,null,i,i,i, R.drawable.community_icon));
-        }
     }
 
     @Override

@@ -42,10 +42,11 @@ public class Fragment_Community_Comment_RecyclerAdapter extends RecyclerView.Ada
         String content = item.getContent();
         int icon = item.getIcon();
 
+        /*
         holder.id.setText(id);
         holder.time.setText(time);
         holder.content.setText(content);
-        holder.icon.setImageResource(icon);
+        holder.icon.setImageResource(icon);*/
     }
 
     @Override
