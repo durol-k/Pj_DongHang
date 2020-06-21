@@ -56,6 +56,19 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.Holder>{
             super(view);
             title = view.findViewById(R.id.profile_item_title);
 
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = getAdapterPosition();
+                    if(pos != RecyclerView.NO_POSITION){
+                        if(mListener != null){
+                            mListener.onItemClick(v, pos);
+                        }
+
+                    }
+                }
+            });
+
 
         }
     }
@@ -67,6 +80,18 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.Holder>{
 
     public void addItem(String title){
         title_list.add(title);
+    }
+
+    /// 리스너
+    public interface OnItemClcikListener{
+        void onItemClick(View view, int pos);
+    }
+
+    private ProfileAdapter.OnItemClcikListener mListener = null;
+
+    public void setOnItemClickListener(ProfileAdapter.OnItemClcikListener listener){
+        this.mListener = listener;
+
     }
 
 

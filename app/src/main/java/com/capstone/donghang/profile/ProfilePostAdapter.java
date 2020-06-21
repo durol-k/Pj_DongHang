@@ -31,11 +31,8 @@ public class ProfilePostAdapter extends RecyclerView.Adapter<ProfilePostAdapter.
     public ProfilePostAdapter.Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         Context context = parent.getContext();
-        View view = LayoutInflater.from(context).inflate(R.layout.fragment_profile_post_item, parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.fragment_profile_post_item2, parent,false);
         Holder holder = new Holder(view);
-
-
-
 
         return holder;
     }
@@ -45,6 +42,8 @@ public class ProfilePostAdapter extends RecyclerView.Adapter<ProfilePostAdapter.
 
         int pos = position;
         holder.title.setText(dataLists.get(pos).getPost_title());
+        holder.type.setText(dataLists.get(pos).type);
+        holder.date.setText(dataLists.get(pos).write_date);
         holder.content.setText(dataLists.get(pos).getPost_content());
         //holder.img.setImageResource();
 
@@ -52,15 +51,18 @@ public class ProfilePostAdapter extends RecyclerView.Adapter<ProfilePostAdapter.
 
     public class Holder extends RecyclerView.ViewHolder{
 
-        TextView title, content;
-        ImageView img;
+        TextView title, type, date, content;
+        //ImageView img;
 
 
         Holder(View view){
             super(view);
             title = view.findViewById(R.id.post_title);
+            type = view.findViewById(R.id.profile_post_type);
+            date = view.findViewById(R.id.profile_post_date);
             content = view.findViewById(R.id.post_content);
-            img = view.findViewById(R.id.profile_img);
+
+
 
         }
     }
@@ -73,5 +75,12 @@ public class ProfilePostAdapter extends RecyclerView.Adapter<ProfilePostAdapter.
     public void addItem(String title, String content){
         dataLists.add(new PostData(title, content));
     }
+
+    public void addItem(String title, String type, String date, String content){
+        dataLists.add(new PostData(title, type, date, content));
+    }
+
+
+
 
 }

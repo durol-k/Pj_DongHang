@@ -11,17 +11,20 @@ public class CommentData {
         comment_content = content;
     }
 
-    CommentData(String title, String content, String url){
-        post_title = title;
-        comment_content = content;
 
+    CommentData(String title, String write_date, String content){
+        post_title = title;
+        this.write_date = write_date;
+        comment_content = content;
     }
 
     public int getPost_num() {
         return post_num;
     }
 
-
+    public String getWrite_date() {
+        return write_date;
+    }
 
     public int getUser_num() {
         return user_num;

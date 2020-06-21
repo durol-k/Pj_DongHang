@@ -2,6 +2,7 @@ package com.capstone.donghang.profile;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -25,11 +26,20 @@ public class FragmentProfile_setting extends Fragment {
     androidx.recyclerview.widget.RecyclerView recyclerView;
     AppCompatActivity activity;
     ImageView backBtn;
+    ActionBar actionBar;
+
+
+    public FragmentProfile_setting(ActionBar actionBar){
+        this.actionBar = actionBar;
+    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         dataLists = new ArrayList<>();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        getActivity().setTitle("설 정");
+        setHasOptionsMenu(true);
         return inflater.inflate(R.layout.fragment_profile_setting, container, false);
     }
 
@@ -39,5 +49,19 @@ public class FragmentProfile_setting extends Fragment {
         activity = (AppCompatActivity)getActivity();
 
         super.onActivityCreated(savedInstanceState);
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+
+        switch(id){
+
+            case android.R.id.home:
+                Toast.makeText(getContext(), "백 눌림", Toast.LENGTH_SHORT).show();
+                getActivity().onBackPressed();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

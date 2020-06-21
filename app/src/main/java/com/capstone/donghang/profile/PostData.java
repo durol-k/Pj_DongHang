@@ -5,6 +5,7 @@ public class PostData {
     int post_num, user_num, post_type;
     String post_title, post_content, url;
     String write_date;
+    String type;
 
     PostData(String title, String content){
         post_title = title;
@@ -15,6 +16,14 @@ public class PostData {
         post_title = title;
         post_content = content;
         this.url = url;
+    }
+
+    PostData(String title, String type, String write_date, String content){
+        post_title = title;
+        this.type = type;
+        this.write_date = write_date;
+        post_content = content;
+        ;
     }
 
     public int getPost_num() {
