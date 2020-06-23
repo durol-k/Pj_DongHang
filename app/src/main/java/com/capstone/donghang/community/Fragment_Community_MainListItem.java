@@ -70,4 +70,5 @@ public class Fragment_Community_MainListItem {
     public int getIcon() {
         return icon;
     }
+
 }

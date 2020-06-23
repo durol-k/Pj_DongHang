@@ -16,7 +16,7 @@
         android:textSize="20sp"
         android:padding="5dp"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/border"
+
         />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/community_mainlist_recyclerview"

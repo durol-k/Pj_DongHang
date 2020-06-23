@@ -1,6 +1,7 @@
 package com.capstone.donghang.community;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -71,6 +72,7 @@ public class Fragment_Community_MainList extends Fragment {
 
                 TextView name = view.findViewById(R.id.community_main_category_name);
                 name.setText(item.getTitle());
+
 
                 return true;
             }
