@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class SearchMainAdapter extends RecyclerView.Adapter<SearchMainAdapter.ViewHolder> {
     private ArrayList<String> mData =null;
-    private ArrayList<String> mDataPic =null;
+    private ArrayList<Integer> mDataPic =null;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tv1;
@@ -43,7 +43,7 @@ public class SearchMainAdapter extends RecyclerView.Adapter<SearchMainAdapter.Vi
         }
     }
 
-    SearchMainAdapter(ArrayList<String> list,ArrayList<String> listPic){
+    SearchMainAdapter(ArrayList<String> list,ArrayList<Integer> listPic){
         mData = list;
         mDataPic = listPic;
     }
@@ -64,7 +64,7 @@ public class SearchMainAdapter extends RecyclerView.Adapter<SearchMainAdapter.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String text = mData.get(position);
         holder.tv1.setText(text);
-        holder.iv1.setImageResource(R.drawable.ic_calendar_material_design);
+        holder.iv1.setImageResource(mDataPic.get(position));
     }
 
     @Override
