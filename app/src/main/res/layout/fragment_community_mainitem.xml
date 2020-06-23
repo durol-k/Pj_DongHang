@@ -2,47 +2,45 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/community_header_border"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:orientation="horizontal"
-        android:baselineAligned="false"
-        android:background="@drawable/border"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/community_icon"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/ic_person_material_design"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="10dp"
-      />
+        <ImageView
+            android:id="@+id/community_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/community_icon" />
 
-    <TextView
-        android:id="@+id/community_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="닉네임"
-        android:textColor="#000000"
-        android:textSize="25sp"
-         />
+        <TextView
+            android:id="@+id/community_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/item_id"
+            android:textColor="@color/community_white"
+            android:textSize="25sp" />
 
-    <TextView
-        android:id="@+id/community_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="25dp"
-        android:text="00:00"
-        android:textSize="18sp" />
+        <TextView
+            android:id="@+id/community_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/item_time"
+            android:textColor="@color/community_white"
+            android:textSize="18sp" />
 
     </LinearLayout>
 
@@ -59,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="10dp"
-        android:text="글의 제목"
+        android:text="@string/item_title"
         android:textColor="#000000"
         android:textSize="25sp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -69,11 +67,12 @@
         android:id="@+id/community_content"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:padding="8dp"
         android:ellipsize="end"
-        android:text="명지전문대 대 컴퓨터공학과명지전문대 컴퓨터공학과명지전문대 컴퓨터공학과명지전문대 컴퓨터공학과퓨터공학과명지전문대 컴퓨터공학과 컴퓨터공학과퓨터공학과명지전문대 컴퓨터공학과컴퓨터공학과퓨터공학과명지전문대 컴퓨터공학과"
         android:maxLines="2"
+        android:padding="8dp"
+        android:text="@string/item_content"
         android:textSize="20sp"
+        android:textColor="@color/community_black"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/community_title" />
 
@@ -81,15 +80,13 @@
         android:id="@+id/community_image"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="25dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="40dp"
         android:scaleType="fitXY"
         app:layout_constraintLeft_toRightOf="@+id/community_content"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/community_gl"
-        />
-
+        app:layout_constraintTop_toTopOf="@+id/community_gl" />
 
 
     <LinearLayout
@@ -103,40 +100,37 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="좋아요" />
+            android:text="@string/item_like" />
 
         <TextView
             android:id="@+id/community_mainitem_likeCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:text="0" />
+            android:layout_marginStart="5dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="댓글" />
+            android:text="@string/item_comment" />
 
         <TextView
             android:id="@+id/community_mainitem_commentCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:text="0" />
+            android:layout_marginStart="5dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="조회수" />
+            android:text="@string/item_view" />
 
         <TextView
             android:id="@+id/community_mainitem_viewCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:text="0" />
+            android:layout_marginStart="5dp" />
     </LinearLayout>
 
 

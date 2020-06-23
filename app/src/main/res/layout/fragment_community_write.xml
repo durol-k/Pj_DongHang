@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#656464">
 
     <Spinner
@@ -11,56 +11,51 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/community_white"
-        android:spinnerMode="dialog"
         android:prompt="@string/cat"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        android:spinnerMode="dialog"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
-        android:layout_marginTop="2dp"
         android:id="@+id/community_write_head"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
         android:background="@color/community_white"
-        android:spinnerMode="dialog"
         android:prompt="@string/head"
-        app:layout_constraintTop_toBottomOf="@+id/community_write_category"
-        />
+        android:spinnerMode="dialog"
+        app:layout_constraintTop_toBottomOf="@+id/community_write_category" />
 
     <EditText
-        android:padding="10dp"
         android:id="@+id/community_write_title"
-        android:layout_marginTop="2dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="2dp"
         android:background="@color/community_white"
-        android:hint="제목을 입력해주세요"
-        app:layout_constraintTop_toBottomOf="@+id/community_write_head"
-        />
+        android:hint="@string/hint_title"
+        android:padding="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/community_write_head" />
 
     <EditText
-        android:padding="10dp"
         android:id="@+id/community_write_content"
-        android:layout_marginTop="2dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="2dp"
         android:background="@color/community_white"
-        android:hint="내용을 입력해주세요"
         android:gravity="top"
-        app:layout_constraintTop_toBottomOf="@+id/community_write_title"
+        android:hint="@string/hint_content"
+        android:padding="10dp"
         app:layout_constraintBottom_toTopOf="@+id/community_write_tag"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/community_write_title" />
 
     <EditText
-        android:padding="10dp"
         android:id="@+id/community_write_tag"
-        android:layout_marginTop="2dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
         android:background="@color/community_white"
-        android:hint="#태그"
-        app:layout_constraintTop_toBottomOf="@+id/community_write_content"
+        android:hint="@string/hint_tag"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/community_write_content" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
