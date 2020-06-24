@@ -35,10 +35,6 @@ public class FragmentProfile extends Fragment {
     ImageView userImg; // 프로필 사진
     TextView id_manage; // 계정관리(텍스트)
 
-    public static FragmentProfile newInstance() {
-        return new FragmentProfile();
-    }
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

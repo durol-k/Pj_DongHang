@@ -111,11 +111,11 @@ public class FragmentAfterSearch extends Fragment {
                 switch(pos){
                     case 0 :
                         fragment1 = new FragmentSelectSearch(select_info.get(position));
-                        ((MainActivity)getActivity()).replaceFragment(fragment1, MainActivity.SEARCH);
+                        ((MainActivity)getActivity()).replaceFragment(fragment1);
                         break;
                     case 1 :
                         fragment1 = new FragmentSelectPlan();
-                        ((MainActivity)getActivity()).replaceFragment(fragment1, MainActivity.SEARCH);
+                        ((MainActivity)getActivity()).replaceFragment(fragment1);
                         break;
                 }
             }

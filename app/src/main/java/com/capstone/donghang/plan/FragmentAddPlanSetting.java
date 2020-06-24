@@ -44,16 +44,10 @@ public class FragmentAddPlanSetting extends Fragment {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((MainActivity) getActivity()).replaceFragment(FragmentSelectDay.newInstance(), 1);
+                ((MainActivity) getActivity()).replaceFragment(new FragmentSelectDay());
             }
         });
 
         return root;
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-
     }
 }

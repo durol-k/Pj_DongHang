@@ -29,10 +29,6 @@ import java.util.List;
 public class FragmentPlanDetail extends Fragment {
     private Context context;
 
-    public static FragmentPlanDetail newInstance() {
-        return new FragmentPlanDetail();
-    }
-
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
@@ -52,24 +48,19 @@ public class FragmentPlanDetail extends Fragment {
 
         ArrayList<ItemPlanDetail> dataSet = new ArrayList<ItemPlanDetail>();
         dataSet.add(new ItemPlanDetail(RecyclerAdapterPlanDetail.PARENT, "2020.06.10"));
-        dataSet.add(new ItemPlanDetail(RecyclerAdapterPlanDetail.CHILD, "숭례문10", "대한민국 서울0"));
-        dataSet.add(new ItemPlanDetail(RecyclerAdapterPlanDetail.CHILD, "경복궁10", "대한민국 서울0"));
-        dataSet.add(new ItemPlanDetail(RecyclerAdapterPlanDetail.CHILD, "남산타워10", "대한민국 서울0"));
+        dataSet.add(new ItemPlanDetail(RecyclerAdapterPlanDetail.CHILD, "숭례문", "서울 종로구 사직로 161 경복궁"));
+        dataSet.add(new ItemPlanDetail(RecyclerAdapterPlanDetail.CHILD, "경복궁", "서울 중구 세종대로 40"));
+        dataSet.add(new ItemPlanDetail(RecyclerAdapterPlanDetail.CHILD, "남산타워", "서울 용산구 남산공원길 103 서울타워우편물취급소"));
 
         dataSet.add(new ItemPlanDetail(RecyclerAdapterPlanDetail.PARENT, "2020.06.11"));
-        dataSet.add(new ItemPlanDetail(RecyclerAdapterPlanDetail.CHILD, "숭례문11", "대한민국 서울1"));
-        dataSet.add(new ItemPlanDetail(RecyclerAdapterPlanDetail.CHILD, "경복궁11", "대한민국 서울1"));
-        dataSet.add(new ItemPlanDetail(RecyclerAdapterPlanDetail.CHILD, "남산타워11", "대한민국 서울1"));
+        dataSet.add(new ItemPlanDetail(RecyclerAdapterPlanDetail.CHILD, "명지전문대", "서울특별시 서대문구 가좌로 134"));
+        dataSet.add(new ItemPlanDetail(RecyclerAdapterPlanDetail.CHILD, "명지대", "서울특별시 서대문구 거북골로 34"));
+        dataSet.add(new ItemPlanDetail(RecyclerAdapterPlanDetail.CHILD, "남산", "서울 중구 회현동1가"));
 
         dataSet.add(new ItemPlanDetail(RecyclerAdapterPlanDetail.PARENT, "2020.06.12"));
-        dataSet.add(new ItemPlanDetail(RecyclerAdapterPlanDetail.CHILD, "숭례문12", "대한민국 서울2"));
-        dataSet.add(new ItemPlanDetail(RecyclerAdapterPlanDetail.CHILD, "경복궁12", "대한민국 서울2"));
-        dataSet.add(new ItemPlanDetail(RecyclerAdapterPlanDetail.CHILD, "남산타워12", "대한민국 서울2"));
-
-        dataSet.add(new ItemPlanDetail(RecyclerAdapterPlanDetail.PARENT, "2020.06.13"));
-        dataSet.add(new ItemPlanDetail(RecyclerAdapterPlanDetail.CHILD, "숭례문13", "대한민국 서울3"));
-        dataSet.add(new ItemPlanDetail(RecyclerAdapterPlanDetail.CHILD, "경복궁13", "대한민국 서울3"));
-        dataSet.add(new ItemPlanDetail(RecyclerAdapterPlanDetail.CHILD, "남산타워13", "대한민국 서울3"));
+        dataSet.add(new ItemPlanDetail(RecyclerAdapterPlanDetail.CHILD, "광화문", "서울 종로구 사직로 161"));
+        dataSet.add(new ItemPlanDetail(RecyclerAdapterPlanDetail.CHILD, "서울시청", "서울 중구 세종대로 110 서울특별시청"));
+        dataSet.add(new ItemPlanDetail(RecyclerAdapterPlanDetail.CHILD, "덕수궁", "서울 중구 세종대로 99 덕수궁"));
 
         RecyclerView.Adapter adapter = new RecyclerAdapterPlanDetail(dataSet);
         recyclerView.setAdapter(adapter);
@@ -92,7 +83,7 @@ public class FragmentPlanDetail extends Fragment {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         super.onOptionsItemSelected(item);
-        ((MainActivity) getActivity()).replaceFragment(FragmentMakePlan.newInstance(), MainActivity.PLAN);
+        ((MainActivity) getActivity()).replaceFragment(new FragmentMakePlan());
 
         return true;
     }
