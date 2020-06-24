@@ -30,6 +30,7 @@ public class FragmentProfile_idManage extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         dataLists = new ArrayList<>();
+        getActivity().setTitle("계정 관리");
         return inflater.inflate(R.layout.fragment_profile_id_manage, container, false);
     }
 
