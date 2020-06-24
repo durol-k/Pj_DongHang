@@ -33,6 +33,10 @@ import java.util.ArrayList;
 public class FragmentSearch extends Fragment {
     RecyclerView rcv1,rcv2;
     ArrayList<FragmentSelectSearchDto> select_info = new ArrayList<>();
+    public static FragmentSearch newInstance() {
+        return new FragmentSearch();
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -125,7 +129,7 @@ public class FragmentSearch extends Fragment {
 //                transaction.commit();
 
                 Fragment fragment1 = new FragmentSelectSearch(select_info.get(position));
-                ((MainActivity)getActivity()).replaceFragment(fragment1);
+                ((MainActivity)getActivity()).replaceFragment(fragment1, MainActivity.SEARCH);
 
             }
         });
@@ -140,7 +144,7 @@ public class FragmentSearch extends Fragment {
 //                transaction.commit();
 
                 Fragment fragment2 = new FragmentSelectPlan();
-                ((MainActivity)getActivity()).replaceFragment(fragment2);
+                ((MainActivity)getActivity()).replaceFragment(fragment2, MainActivity.SEARCH);
             }
         });
 
@@ -167,7 +171,7 @@ public class FragmentSearch extends Fragment {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 Fragment fragment3 = new FragmentAfterSearch(select_info);
-                ((MainActivity)getActivity()).replaceFragment(fragment3);
+                ((MainActivity)getActivity()).replaceFragment(fragment3, MainActivity.SEARCH);
                 return true;
             }
 
