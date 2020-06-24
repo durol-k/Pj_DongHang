@@ -36,9 +36,7 @@ public class Fragment_Community_Write extends Fragment {
     private int catNum; //카테고리 번호
     private String catName; //카테고리 이름
 
-    public Fragment_Community_Write(List<Fragment_Community_MainListItem> itemList) {
-        this.itemList = itemList;
-    }
+    public Fragment_Community_Write() {}
 
 
     @Override
@@ -84,10 +82,7 @@ public class Fragment_Community_Write extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         /* 프래그먼트 이동 */
-                        Fragment_Community_MainList mainList_fragment = new Fragment_Community_MainList(itemList, catNum, catName);
-                        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                        transaction.replace(R.id.frame_main, mainList_fragment);
-                        transaction.commit();
+                        getActivity().getSupportFragmentManager().popBackStack();
                         Toast.makeText(getContext(), "임시저장 되었습니다.", Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -127,10 +122,9 @@ public class Fragment_Community_Write extends Fragment {
                             post = new Fragment_Community_MainListItem("test", time.format(date), title,
                                                                             content, null,
                                                                     0, 0, 0, R.drawable.community_icon, catNum);
-                            itemList.add(0, post); // 게시글을 리스트 첫번째에 삽입
 
                             /* 프래그먼트 이동 */
-                            Fragment_Community_MainList mainList_fragment = new Fragment_Community_MainList(itemList, catNum, catName);
+                            Fragment_Community_MainList mainList_fragment = new Fragment_Community_MainList(post, catNum, catName);
                             FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                             transaction.replace(R.id.frame_main, mainList_fragment);
                             transaction.commit();

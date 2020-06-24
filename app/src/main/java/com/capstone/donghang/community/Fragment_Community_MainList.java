@@ -49,8 +49,9 @@ public class Fragment_Community_MainList extends Fragment {
         listForCategory.addAll(entireItemList);
     }
 
-    public Fragment_Community_MainList(List<Fragment_Community_MainListItem> itemList, int catNum, String catName) {
-        entireItemList = itemList;
+    public Fragment_Community_MainList(Fragment_Community_MainListItem post, int catNum, String catName) {
+        entireItemList.add(post);
+        itemInit();
         this.catName = catName;
 
         listForCategory.clear();
@@ -126,7 +127,7 @@ public class Fragment_Community_MainList extends Fragment {
             @Override
             public void onClick(View v) {
                 /* 글쓰기 프래그먼트로 이동 */
-                Fragment_Community_Write write_fragment = new Fragment_Community_Write(entireItemList);
+                Fragment_Community_Write write_fragment = new Fragment_Community_Write();
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_main, write_fragment);
                 transaction.addToBackStack(null);
