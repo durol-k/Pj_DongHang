@@ -1,24 +1,31 @@
 package com.capstone.donghang.community;
 
+/**
+ * 게시글 정보 담는 클래스
+ */
+
 public class Fragment_Community_MainListItem {
     private String id;
     private String time;
     private String title;
     private String content;
+    private int catNum;
     private int img;
     private int like, comment, viewCount;
     private int icon;
-    public Fragment_Community_MainListItem(String id, String time, String title, String content, Integer img, int like, int comment, int viewCount, int icon) {
+
+    public Fragment_Community_MainListItem(String id, String time, String title, String content, Integer img, int like, int comment, int viewCount, int icon, int catNum) {
         this.id = id;
         this.time = time;
         this.title = title;
         this.content = content;
-        if(img != null)
+        if (img != null)
             this.img = img.intValue();
         this.like = like;
         this.comment = comment;
         this.viewCount = viewCount;
         this.icon = icon;
+        this.catNum = catNum;
     }
 
     public int getImg() {
@@ -65,5 +72,9 @@ public class Fragment_Community_MainListItem {
 
     public int getIcon() {
         return icon;
+    }
+
+    public int getCatNum() {
+        return catNum;
     }
 }

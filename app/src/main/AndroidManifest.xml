@@ -31,13 +31,16 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAGxx6GIN3ZE8Ee8OGb96u6GjyyK__haqk"/>
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:windowSoftInputMode="adjustPan"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".profile.ProfileActivity"/>
     </application>
 
 </manifest>

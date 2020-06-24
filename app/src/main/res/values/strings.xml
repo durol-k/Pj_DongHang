@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DongHang</string>
+    <string name="app_name">GO WITH</string>
     <string name="plan">Plan</string>
     <string name="search">Search</string>
     <string name="community">Community</string>
@@ -12,9 +12,25 @@
     <string name="recommend_people">추천 동행자</string>
     <string name="myPost">내가 작성한 글</string>
 
-
     <!-- TODO: Remove or change this placeholder text -->
+
+    <!-- TODO:커뮤니티 -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="cat">게시판 선택</string>
     <string name="head">머리말 선택</string>
+    <string name="item_id">닉네임</string>
+    <string name="item_time">시간</string>
+    <string name="item_title">제목</string>
+    <string name="item_content">내용</string>
+    <string name="item_like">좋아요</string>
+    <string name="item_view">조회수</string>
+    <string name="item_comment">댓글</string>
+    <string name="item_createItemTime">작성시간</string>
+    <string name="item_insert">입력</string>
+    <string name="test_id">test</string>
+    <string name="category_init">전체 게시글</string>
+    <string name="hint_comment">댓글 작성하세요</string>
+    <string name="hint_title">제목을 입력해주세요</string>
+    <string name="hint_content">내용을 입력해주세요</string>
+    <string name="hint_tag">#태그</string>
 </resources>

@@ -14,7 +14,7 @@ import com.capstone.donghang.R;
 
 import java.util.ArrayList;
 
-public class SearchMainAdapter extends RecyclerView.Adapter<SearchMainAdapter.ViewHolder> {
+public class SearchMainAdapter2 extends RecyclerView.Adapter<SearchMainAdapter2.ViewHolder> {
     private ArrayList<String> mData =null;
     private ArrayList<Integer> mDataPic =null;
 
@@ -43,7 +43,7 @@ public class SearchMainAdapter extends RecyclerView.Adapter<SearchMainAdapter.Vi
         }
     }
 
-    SearchMainAdapter(ArrayList<String> list,ArrayList<Integer> listPic){
+    SearchMainAdapter2(ArrayList<String> list,ArrayList<Integer> listPic){
         mData = list;
         mDataPic = listPic;
     }
@@ -55,7 +55,7 @@ public class SearchMainAdapter extends RecyclerView.Adapter<SearchMainAdapter.Vi
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         View view = inflater.inflate(R.layout.horizon_recycler_itmes,parent,false);
-        SearchMainAdapter.ViewHolder vh = new SearchMainAdapter.ViewHolder(view);
+        SearchMainAdapter2.ViewHolder vh = new SearchMainAdapter2.ViewHolder(view);
 
         return vh;
     }
