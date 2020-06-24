@@ -9,6 +9,7 @@
     <item
         android:id="@+id/plan_menu_savesearch_search"
         android:icon="@drawable/ic_search_material_design"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
         android:title="검색"
         app:showAsAction="always" />
 </menu>
