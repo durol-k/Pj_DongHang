@@ -1,14 +1,31 @@
 package com.capstone.donghang.profile;
 
+import java.util.ArrayList;
+
 public class RecommandData {
 
     int userId, getUserId2;
-    String name, location, place, startDate, endData;
+    String name, place, startDate, endDate, location1;
+    int imageResource;
+    ArrayList<String> locations;
 
     RecommandData(String name, String location){
 
         this.name = name;
-        this.location = location;
+        this.location1 = location;
+
+
+    }
+
+    RecommandData(int imageResource, String name, String place, ArrayList<String> location){
+
+        this.imageResource = imageResource;
+        this.name = name;
+        this.place = place;
+        this.locations = location;
+
+        //startDate = start;
+        //endDate = end;
 
     }
 
@@ -17,7 +34,7 @@ public class RecommandData {
     }
 
     public String getLocation() {
-        return location;
+        return location1;
     }
 
     public String getPlace() {
@@ -29,7 +46,21 @@ public class RecommandData {
     }
 
     public String getEndData() {
-        return endData;
+        return endDate;
     }
+
+    public int getImageResource() {
+        return imageResource;
+    }
+
+    public String display_location_date(int pos){
+        String output =  locations.get(pos);
+
+        return output;
+    }
+    public void addItem(String location_data){
+        locations.add(location_data);
+    }
+
 }
 

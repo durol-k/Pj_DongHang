@@ -41,19 +41,21 @@ public class ProfileCommentAdapter extends RecyclerView.Adapter<ProfileCommentAd
 
         int pos = position;
         holder.title.setText(dataLists.get(pos).getPost_title());
+        holder.date.setText(dataLists.get(pos).getWrite_date());
         holder.comment.setText(dataLists.get(pos).getComment_content());
 
     }
 
     public class Holder extends RecyclerView.ViewHolder{
 
-        TextView title, comment;
+        TextView title, date, comment;
 
 
 
         Holder(View view){
             super(view);
             title = view.findViewById(R.id.post_title);
+            date = view.findViewById(R.id.profile_comment_date);
             comment = view.findViewById(R.id.comment_content);
 
         }
@@ -64,8 +66,8 @@ public class ProfileCommentAdapter extends RecyclerView.Adapter<ProfileCommentAd
         return dataLists.size();
     }
 
-    public void addItem(String title, String content){
-        dataLists.add(new CommentData(title, content));
+    public void addItem(String title, String date, String content){
+        dataLists.add(new CommentData(title, date, content));
     }
 
 

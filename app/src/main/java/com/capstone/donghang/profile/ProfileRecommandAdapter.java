@@ -23,6 +23,7 @@ public class ProfileRecommandAdapter extends RecyclerView.Adapter<ProfileRecomma
     ArrayList<RecommandData> dataLists;
 
 
+
     public ProfileRecommandAdapter(ArrayList<RecommandData> dataLists){
         this.dataLists = dataLists;
 
@@ -47,8 +48,7 @@ public class ProfileRecommandAdapter extends RecyclerView.Adapter<ProfileRecomma
         int pos = position;
         holder.name.setText(dataLists.get(pos).getName()); // 추천인 이름
         holder.location.setText(dataLists.get(pos).getLocation()); // 추천인의 사는 장소
-
-        //holder.img.setImageResource();
+        holder.img.setImageResource(dataLists.get(pos).getImageResource());
 
     }
 
@@ -66,10 +66,11 @@ public class ProfileRecommandAdapter extends RecyclerView.Adapter<ProfileRecomma
             name = view.findViewById(R.id.user_name);
             location = view.findViewById(R.id.user_location);
             places_layout = view.findViewById(R.id.trip_place_list);
+            img = view.findViewById(R.id.profile_recommand_image);
 
-            textview("여행장소1", context, places_layout);
-            textview("여행장소2", context, places_layout);
-            textview("여행장소3", context, places_layout); // 이후 반복문으로 바꾸어 동적으로 텍스트 뷰 추가
+            textview(dataLists.get(0).locations.get(0), context, places_layout);
+            textview(dataLists.get(0).locations.get(1), context, places_layout);
+            textview(dataLists.get(0).locations.get(2), context, places_layout); // 이후 반복문으로 바꾸어 동적으로 텍스트 뷰 추가
 
 
         }
@@ -80,15 +81,15 @@ public class ProfileRecommandAdapter extends RecyclerView.Adapter<ProfileRecomma
         return dataLists.size();
     }
 
-    public void addItem(String name, String location){
-        dataLists.add(new RecommandData(name, location));
+    public void addItem(int image, String name, String place, ArrayList<String> location){
+        dataLists.add(new RecommandData(image, name, place, location));
     }
 
     public void textview(String text, Context context, LinearLayout parent){
         //TextView 생성
         TextView view1 = new TextView(context);
         view1.setText(text);
-        view1.setTextColor(Color.BLACK);
+        view1.setTextSize(20);
 
         //layout_width, layout_height, gravity 설정
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
