@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.capstone.donghang.R;
+import com.capstone.donghang.plan.FragmentPlan;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -27,6 +28,11 @@ public class Fragment_Community_MainList extends Fragment {
     List<Fragment_Community_MainListItem> itemList;
     DrawerLayout drawerLayout;
     FloatingActionButton fab;
+
+    public static Fragment_Community_MainList newInstance() {
+        return new Fragment_Community_MainList();
+    }
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 

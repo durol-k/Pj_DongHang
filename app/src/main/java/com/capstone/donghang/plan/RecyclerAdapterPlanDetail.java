@@ -1,5 +1,6 @@
 package com.capstone.donghang.plan;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,40 +13,68 @@ import com.capstone.donghang.R;
 
 import java.util.ArrayList;
 
-public class RecyclerAdapterPlanDetail extends RecyclerView.Adapter<RecyclerAdapterPlanDetail.CustomViewHolder> {
+public class RecyclerAdapterPlanDetail extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    public final static int PARENT = 0;
+    public final static int CHILD = 1;
 
-    private ArrayList<ItemPlanDetail> list;
+    private ArrayList<ItemPlanDetail> dataSet;
 
-    public RecyclerAdapterPlanDetail(ArrayList<ItemPlanDetail> list) {
-        this.list = list;
-    }
-
-    public class CustomViewHolder extends RecyclerView.ViewHolder {
-        TextView title;
-        TextView period;
-        public CustomViewHolder(View view) {
-            super(view);
-            this.title = view.findViewById(R.id.itemName);
-            this.period = view.findViewById(R.id.itemPeriod);
-        }
+    public RecyclerAdapterPlanDetail(ArrayList<ItemPlanDetail> dataSet) {
+        this.dataSet = dataSet;
     }
 
     @NonNull
     @Override
-    public RecyclerAdapterPlanDetail.CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.plan_detail_recycler_item, parent, false);
-        CustomViewHolder viewHolder = new CustomViewHolder(view);
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflater = (LayoutInflater) parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view;
 
-        return viewHolder;
+        if (viewType == PARENT) {
+            view = inflater.inflate(R.layout.recycler_item_plan_detail_parent, parent, false);
+            return new ParentViewHolder(view);
+        } else {
+            view = inflater.inflate(R.layout.recycler_item_plan_detail_child, parent, false);
+            return new ChildViewHolder(view);
+        }
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
-
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        if (holder instanceof ParentViewHolder)
+            ((ParentViewHolder) holder).date.setText(dataSet.get(position).getDate());
+        else {
+            ((ChildViewHolder) holder).title.setText(dataSet.get(position).getTitle());
+            ((ChildViewHolder) holder).address.setText(dataSet.get(position).getAddress());
+        }
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return dataSet.size();
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return dataSet.get(position).getType();
+    }
+
+    public static class ParentViewHolder extends RecyclerView.ViewHolder {
+        TextView date;
+
+        public ParentViewHolder(View view) {
+            super(view);
+            this.date = view.findViewById(R.id.itemDate);
+        }
+    }
+
+    public static class ChildViewHolder extends RecyclerView.ViewHolder {
+        TextView title;
+        TextView address;
+
+        public ChildViewHolder(View view) {
+            super(view);
+            this.title = view.findViewById(R.id.itemName);
+            this.address = view.findViewById(R.id.itemAddress);
+        }
     }
 }

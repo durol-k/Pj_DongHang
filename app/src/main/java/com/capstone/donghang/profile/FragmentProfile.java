@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.capstone.donghang.MainActivity;
 import com.capstone.donghang.R;
+import com.capstone.donghang.plan.FragmentPlan;
 
 import java.util.ArrayList;
 
@@ -34,6 +35,9 @@ public class FragmentProfile extends Fragment {
     ImageView userImg; // 프로필 사진
     TextView id_manage; // 계정관리(텍스트)
 
+    public static FragmentProfile newInstance() {
+        return new FragmentProfile();
+    }
 
     @Nullable
     @Override

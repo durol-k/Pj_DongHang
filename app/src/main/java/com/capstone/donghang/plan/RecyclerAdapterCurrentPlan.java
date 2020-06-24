@@ -22,7 +22,7 @@ public class RecyclerAdapterCurrentPlan extends RecyclerView.Adapter<RecyclerAda
     @NonNull
     @Override
     public RecyclerAdapterCurrentPlan.CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.currentplan_recycler_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item_current_plan, parent, false);
 
         return new CustomViewHolder(view);
     }
@@ -44,6 +44,12 @@ public class RecyclerAdapterCurrentPlan extends RecyclerView.Adapter<RecyclerAda
         CustomViewHolder(@NonNull View itemView) {
             super(itemView);
             this.place = itemView.findViewById(R.id.current_plan_recycler_item);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
         }
     }
 }

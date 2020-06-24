@@ -14,11 +14,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.capstone.donghang.R;
+import com.capstone.donghang.plan.FragmentPlan;
 
 import java.util.ArrayList;
 
 public class FragmentSearch extends Fragment {
     RecyclerView rcv1,rcv2;
+
+    public static FragmentSearch newInstance() {
+        return new FragmentSearch();
+    }
 
     @Nullable
     @Override

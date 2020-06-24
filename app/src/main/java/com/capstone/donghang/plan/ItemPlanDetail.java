@@ -1,11 +1,30 @@
 package com.capstone.donghang.plan;
 
-import java.util.List;
 
 public class ItemPlanDetail {
-    private  String title;
-    private String period;
-    List item;
+    private int type;
+    private String date;
+    private String title;
+    private String address;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public ItemPlanDetail(int type, String title, String address) {
+        this.type = type;
+        this.title = title;
+        this.address = address;
+    }
+
+    public ItemPlanDetail(int type, String date) {
+        this.type = type;
+        this.date = date;
+    }
 
     public String getTitle() {
         return title;
@@ -15,17 +34,19 @@ public class ItemPlanDetail {
         this.title = title;
     }
 
-    public String getPeriod() {
-        return period;
+    public String getAddress() {
+        return address;
     }
 
-    public void setPeriod(String period) {
-        this.period = period;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public ItemPlanDetail(String title, String period) {
-        this.title = title;
-        this.period = period;
+    public int getType() {
+        return type;
     }
 
+    public void setType(int type) {
+        this.type = type;
+    }
 }

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -14,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.capstone.donghang.MainActivity;
 import com.capstone.donghang.R;
 
 import java.util.ArrayList;
@@ -21,6 +23,10 @@ import java.util.Arrays;
 
 public class FragmentPlan extends Fragment { // 1-1. 일정 리스트 화면
     private Context context;
+
+    public static FragmentPlan newInstance() {
+        return new FragmentPlan();
+    }
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -31,41 +37,38 @@ public class FragmentPlan extends Fragment { // 1-1. 일정 리스트 화면
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_plan, container, false);
+        View root = inflater.inflate(R.layout.fragment_plan_list, container, false);
 
         setHasOptionsMenu(true);
 
-        RecyclerView currentPlan, planList;
-        RecyclerView.Adapter currentPlanAdapter, planListAdapter;
-
         // current plan recycler view setting
-        currentPlan = root.findViewById(R.id.currentPlanRecycler);
-        currentPlan.setHasFixedSize(true);
-        currentPlan.setLayoutManager(new LinearLayoutManager(context, RecyclerView.HORIZONTAL, false));
-
-        // current plan's data setting
-        ArrayList<ItemCurrentPlan> currentPlanDataSet = new ArrayList<ItemCurrentPlan>();
-        currentPlanDataSet.add(new ItemCurrentPlan("명지전문대"));
-        currentPlanDataSet.add(new ItemCurrentPlan("명지대"));
-        currentPlanDataSet.add(new ItemCurrentPlan("명지대대"));
-        currentPlanDataSet.add(new ItemCurrentPlan("명지지대"));
-        currentPlanDataSet.add(new ItemCurrentPlan("명명지대"));
-        currentPlanDataSet.add(new ItemCurrentPlan("명지지대대"));
-        currentPlanDataSet.add(new ItemCurrentPlan("명명지지대"));
-        currentPlanDataSet.add(new ItemCurrentPlan("명명지대대"));
-        currentPlanDataSet.add(new ItemCurrentPlan("명명지지대대"));
-
-        // attach adapter to current plan recycler view
-        currentPlanAdapter = new RecyclerAdapterCurrentPlan(currentPlanDataSet);
-        currentPlan.setAdapter(currentPlanAdapter);
+//        RecyclerView currentPlan = root.findViewById(R.id.currentPlanRecycler);
+//        currentPlan.setHasFixedSize(true);
+//        currentPlan.setLayoutManager(new LinearLayoutManager(context, RecyclerView.HORIZONTAL, false));
+//
+//        // current plan's data setting
+//        ArrayList<ItemCurrentPlan> currentPlanDataSet = new ArrayList<ItemCurrentPlan>();
+//        currentPlanDataSet.add(new ItemCurrentPlan("명지전문대"));
+//        currentPlanDataSet.add(new ItemCurrentPlan("명지대"));
+//        currentPlanDataSet.add(new ItemCurrentPlan("명지대대"));
+//        currentPlanDataSet.add(new ItemCurrentPlan("명지지대"));
+//        currentPlanDataSet.add(new ItemCurrentPlan("명명지대"));
+//        currentPlanDataSet.add(new ItemCurrentPlan("명지지대대"));
+//        currentPlanDataSet.add(new ItemCurrentPlan("명명지지대"));
+//        currentPlanDataSet.add(new ItemCurrentPlan("명명지대대"));
+//        currentPlanDataSet.add(new ItemCurrentPlan("명명지지대대"));
+//
+//        // attach adapter to current plan recycler view
+//        RecyclerAdapterCurrentPlan currentPlanAdapter = new RecyclerAdapterCurrentPlan(currentPlanDataSet);
+//        currentPlan.setAdapter(currentPlanAdapter);
 
         // plan list recycler view setting
-        planList = root.findViewById(R.id.planListRecycler);
+        RecyclerView planList = root.findViewById(R.id.planListRecycler);
         planList.setHasFixedSize(true);
         planList.setLayoutManager(new LinearLayoutManager(context, RecyclerView.VERTICAL, false));
 
         // plan list's data setting
-        ArrayList<ItemPlan> planListDataSet = new ArrayList<ItemPlan>();
+        final ArrayList<ItemPlan> planListDataSet = new ArrayList<ItemPlan>();
         planListDataSet.add(
                 new ItemPlan("제목1", "2020.03.20 ~ 2020.04.19",
                         new ArrayList<String>(Arrays.asList("# tag1", "# tag2"))));
@@ -95,9 +98,14 @@ public class FragmentPlan extends Fragment { // 1-1. 일정 리스트 화면
                         new ArrayList<String>(Arrays.asList("# tag141", "# tag2124"))));
 
         // attach adapter to plan list recycler view
-        planListAdapter = new RecyclerAdapterPlanList(planListDataSet);
-
+        RecyclerAdapterPlanList planListAdapter = new RecyclerAdapterPlanList(planListDataSet);
         planList.setAdapter(planListAdapter);
+        planListAdapter.setOnItemClickListener(new RecyclerAdapterPlanList.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                ((MainActivity) getActivity()).replaceFragment(FragmentPlanDetail.newInstance(), MainActivity.PLAN);
+            }
+        });
         return root;
     }
 
@@ -111,5 +119,13 @@ public class FragmentPlan extends Fragment { // 1-1. 일정 리스트 화면
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.plan_menu_add, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        super.onOptionsItemSelected(item);
+        ((MainActivity) getActivity()).replaceFragment(FragmentAddPlanSetting.newInstance(), MainActivity.PLAN);
+
+        return true;
     }
 }

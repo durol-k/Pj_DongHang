@@ -2,7 +2,6 @@ package com.capstone.donghang.plan;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,16 +19,21 @@ import java.util.ArrayList;
 public class RecyclerAdapterPlanList extends RecyclerView.Adapter<RecyclerAdapterPlanList.CustomViewHolder> { // 1-1. 일정리스트 일정 리사이클러 어댑터
     private Context context;
     private ArrayList<ItemPlan> dataSet;
+    private OnItemClickListener mListener = null;
 
     RecyclerAdapterPlanList(ArrayList<ItemPlan> dataSet) {
         this.dataSet = dataSet;
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.mListener = listener;
     }
 
     @NonNull
     @Override
     public RecyclerAdapterPlanList.CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         this.context = parent.getContext();
-        View view = LayoutInflater.from(context).inflate(R.layout.planlist_recycler_item, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.recycler_item_plan_list, parent, false);
 
         return new CustomViewHolder(view);
     }
@@ -61,7 +65,11 @@ public class RecyclerAdapterPlanList extends RecyclerView.Adapter<RecyclerAdapte
         return dataSet.size();
     }
 
-    static class CustomViewHolder extends RecyclerView.ViewHolder {
+    public interface OnItemClickListener {
+        void onItemClick(View view, int position);
+    }
+
+    class CustomViewHolder extends RecyclerView.ViewHolder {
         TextView title;
         TextView period;
         LinearLayout tagLayout;
@@ -71,6 +79,18 @@ public class RecyclerAdapterPlanList extends RecyclerView.Adapter<RecyclerAdapte
             this.title = itemView.findViewById(R.id.planlist_recycler_item_title);
             this.period = itemView.findViewById(R.id.planlist_recycler_item_period);
             this.tagLayout = itemView.findViewById(R.id.planlist_recycler_item_tagLayout);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = getAdapterPosition();
+                    if (pos != RecyclerView.NO_POSITION)
+                        if (mListener != null)
+                            mListener.onItemClick(v, pos);
+                }
+            });
         }
     }
+
+
 }

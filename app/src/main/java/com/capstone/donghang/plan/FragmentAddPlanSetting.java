@@ -15,9 +15,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.capstone.donghang.MainActivity;
 import com.capstone.donghang.R;
 
 public class FragmentAddPlanSetting extends Fragment {
+
+    public static FragmentAddPlanSetting newInstance() {
+        return new FragmentAddPlanSetting();
+    }
 
     @Nullable
     @Override
@@ -36,6 +41,19 @@ public class FragmentAddPlanSetting extends Fragment {
         editTag.setThreshold(1);
         editTag.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
 
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity) getActivity()).replaceFragment(FragmentSelectDay.newInstance(), 1);
+            }
+        });
+
         return root;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
     }
 }

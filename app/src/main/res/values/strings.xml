@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DongHang</string>
+    <string name="app_name">GO WITH</string>
     <string name="plan">Plan</string>
     <string name="search">Search</string>
     <string name="community">Community</string>
@@ -11,7 +11,6 @@
     <string name="profile_setting">설 정</string>
     <string name="recommend_people">추천 동행자</string>
     <string name="myPost">내가 작성한 글</string>
-
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

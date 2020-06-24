@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <CalendarView
@@ -9,14 +10,34 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/txtStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/calSelectDay"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:text="시작일 : 2020.06.10"/>
+    <TextView
+        android:id="@+id/txtEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@+id/txtStart"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:text="종료일 : 2020.06.10"/>
+
     <Button
         android:id="@+id/btnSelectOk"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="일정 날짜 설정"
+        android:text="확인"
+        android:fontFamily="@font/bmhannapro"
+        android:layout_marginTop="20sp"
         android:textSize="30sp"
         android:textColor="#FFFFFF"
         android:background="@drawable/rounded_button"
-        app:layout_constraintTop_toBottomOf="@+id/calSelectDay"/>
+        app:layout_constraintTop_toBottomOf="@+id/txtEnd"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
