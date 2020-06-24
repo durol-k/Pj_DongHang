@@ -1,43 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <CalendarView
-        android:id="@+id/calSelectDay"
+        android:id="@+id/planDateCalendar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"/>
-
+        app:layout_constraintTop_toTopOf="parent"
+        />
     <TextView
-        android:id="@+id/txtStart"
+        android:id="@+id/textStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/calSelectDay"
+        android:text="0000.00.00"
         android:textSize="24sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        tools:text="시작일 : 2020.06.10"/>
+        app:layout_constraintTop_toBottomOf="@id/planDateCalendar"
+        app:layout_constraintRight_toLeftOf="@+id/textMid"
+        />
     <TextView
-        android:id="@+id/txtEnd"
+        android:id="@+id/textMid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text=" ~ "
         android:textSize="24sp"
-        app:layout_constraintTop_toBottomOf="@+id/txtStart"
+        app:layout_constraintTop_toBottomOf="@id/planDateCalendar"
         app:layout_constraintLeft_toLeftOf="parent"
-        tools:text="종료일 : 2020.06.10"/>
-
+        app:layout_constraintRight_toRightOf="parent"
+        />
+    <TextView
+        android:id="@+id/textEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0000.00.00"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/planDateCalendar"
+        app:layout_constraintLeft_toRightOf="@+id/textMid"
+        />
     <Button
         android:id="@+id/btnSelectOk"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="확인"
-        android:fontFamily="@font/bmhannapro"
         android:layout_marginTop="20sp"
-        android:textSize="30sp"
-        android:textColor="#FFFFFF"
         android:background="@drawable/rounded_button"
-        app:layout_constraintTop_toBottomOf="@+id/txtEnd"/>
+        android:fontFamily="@font/bmhannapro"
+        android:layout_margin="20sp"
+        android:text="확인"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintTop_toBottomOf="@+id/textStart" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

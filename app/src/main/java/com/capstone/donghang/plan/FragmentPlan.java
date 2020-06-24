@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,8 +24,9 @@ import java.util.Arrays;
 
 public class FragmentPlan extends Fragment { // 1-1. 일정 리스트 화면
     private Context context;
+    ArrayList<ItemPlan> planListDataSet;
 
-    public static FragmentPlan newInstance() {
+    public static FragmentPlan newInstance(){
         return new FragmentPlan();
     }
 
@@ -65,37 +67,35 @@ public class FragmentPlan extends Fragment { // 1-1. 일정 리스트 화면
         // plan list recycler view setting
         RecyclerView planList = root.findViewById(R.id.planListRecycler);
         planList.setHasFixedSize(true);
+        planList.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
         planList.setLayoutManager(new LinearLayoutManager(context, RecyclerView.VERTICAL, false));
 
         // plan list's data setting
-        final ArrayList<ItemPlan> planListDataSet = new ArrayList<ItemPlan>();
+        planListDataSet = new ArrayList<ItemPlan>();
+        planListDataSet.add(
+                new ItemPlan("현재일정", "2020.06.10 ~ 2020.06.19",
+                        new ArrayList<String>(Arrays.asList("# 힐링", "# 서울"))));
         planListDataSet.add(
                 new ItemPlan("제목1", "2020.03.20 ~ 2020.04.19",
-                        new ArrayList<String>(Arrays.asList("# tag1", "# tag2"))));
+                        new ArrayList<String>(Arrays.asList("# 힐링", "# 경기"))));
         planListDataSet.add(
                 new ItemPlan("제목2", "2020.04.21 ~ 2020.05.19",
-                        new ArrayList<String>(Arrays.asList("# tag1", "# tag2", "# tag3"))));
+                        new ArrayList<String>(Arrays.asList("# 국내", "# 서울", "# 인기"))));
         planListDataSet.add(
                 new ItemPlan("제목3", "2020.05.20 ~ 2020.06.01",
-                        new ArrayList<String>(Arrays.asList("# tag1", "# tag3", "# tag6", "# tag13", "# tag644"))));
+                        new ArrayList<String>(Arrays.asList("# 힐링", "# 전통", "# 자연"))));
         planListDataSet.add(
                 new ItemPlan("제목6", "2020.06.10 ~ 2020.06.19",
-                        new ArrayList<String>(Arrays.asList("# tag4", "# tag6"))));
+                        new ArrayList<String>(Arrays.asList("# 힐링", "# 서울"))));
         planListDataSet.add(
                 new ItemPlan("제목8", "2020.06.22 ~ 2020.06.30",
-                        new ArrayList<String>(Arrays.asList("# tag7"))));
+                        new ArrayList<String>(Arrays.asList("# 국내"))));
         planListDataSet.add(
                 new ItemPlan("제목9", "2020.07.03 ~ 2020.07.13",
-                        new ArrayList<String>(Arrays.asList("# tag134", "# tag223"))));
+                        new ArrayList<String>(Arrays.asList("# 맛집", "# 강원"))));
         planListDataSet.add(
                 new ItemPlan("제목13", "2020.08.15 ~ 2020.08.22",
-                        new ArrayList<String>(Arrays.asList("# tag155", "# tag442"))));
-        planListDataSet.add(
-                new ItemPlan("제목14", "2020.08.26 ~ 2020.09.13",
-                        new ArrayList<String>(Arrays.asList("# tag1123", "# tag3243"))));
-        planListDataSet.add(
-                new ItemPlan("제목16", "2020.10.11~ 2021.01.08",
-                        new ArrayList<String>(Arrays.asList("# tag141", "# tag2124"))));
+                        new ArrayList<String>(Arrays.asList("# 바다", "# 더워"))));
 
         // attach adapter to plan list recycler view
         RecyclerAdapterPlanList planListAdapter = new RecyclerAdapterPlanList(planListDataSet);
@@ -103,7 +103,7 @@ public class FragmentPlan extends Fragment { // 1-1. 일정 리스트 화면
         planListAdapter.setOnItemClickListener(new RecyclerAdapterPlanList.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                ((MainActivity) getActivity()).replaceFragment(FragmentPlanDetail.newInstance(), MainActivity.PLAN);
+                ((MainActivity) getActivity()).replaceFragment(new FragmentPlanDetail());
             }
         });
         return root;
@@ -124,8 +124,7 @@ public class FragmentPlan extends Fragment { // 1-1. 일정 리스트 화면
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         super.onOptionsItemSelected(item);
-        ((MainActivity) getActivity()).replaceFragment(FragmentAddPlanSetting.newInstance(), MainActivity.PLAN);
-
+        ((MainActivity) getActivity()).replaceFragment(new FragmentAddPlanSetting());
         return true;
     }
 }

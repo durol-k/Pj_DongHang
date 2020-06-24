@@ -65,10 +65,6 @@ public class Fragment_Community_MainList extends Fragment {
         }
     }
 
-    public static Fragment_Community_MainList newInstance() {
-        return new Fragment_Community_MainList();
-    }
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
