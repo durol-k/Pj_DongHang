@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.capstone.donghang.R;
+import com.capstone.donghang.Search.SearchMainAdapter;
 
 import java.util.ArrayList;
 
@@ -18,7 +19,7 @@ public class SearchAfterAdapter extends RecyclerView.Adapter<SearchAfterAdapter.
     private ArrayList<String> mData = null;
     private ArrayList<String> mData2 = null;
     private ArrayList<String[]> mDataTag = null;
-    private ArrayList<String> mDataPic = null;
+    private ArrayList<Integer> mDataPic = null;
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -32,14 +33,28 @@ public class SearchAfterAdapter extends RecyclerView.Adapter<SearchAfterAdapter.
             tvName = itemView.findViewById(R.id.tvSAName);
             tvLoc = itemView.findViewById(R.id.tvSALocation);
             tvTag = itemView.findViewById(R.id.tvSATag);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = getAdapterPosition();
+                    if(pos != RecyclerView.NO_POSITION){
+                        //리스너 객체 메서드 호출
+                        if(mListener != null){
+                            mListener.onItemClick(v,pos);
+                        }
+                    }
+                }
+            });
         }
     }
 
-    SearchAfterAdapter(ArrayList<String> list,ArrayList<String> list2,ArrayList<String[]> tagList, ArrayList<String> listPic){
+    SearchAfterAdapter(ArrayList<String> list,ArrayList<String> list2,ArrayList<String[]> tagList, ArrayList<Integer> listPic){
         mData = list;
         mData2 = list2;
         mDataPic = listPic;
         mDataTag = tagList;
+        mDataPic = listPic;
     }
 
     @NonNull
@@ -76,7 +91,7 @@ public class SearchAfterAdapter extends RecyclerView.Adapter<SearchAfterAdapter.
             }
         }
 
-        holder.iv1.setImageResource(R.drawable.ic_calendar_material_design);
+        holder.iv1.setImageResource(mDataPic.get(position));
     }
 
     @Override
@@ -84,5 +99,13 @@ public class SearchAfterAdapter extends RecyclerView.Adapter<SearchAfterAdapter.
         return mData.size();
     }
 
+    public interface OnItemClickListener{
+        void onItemClick(View v, int position);
+    }
 
+    private SearchMainAdapter.OnItemClickListener mListener = null;
+
+    public void setOnItemClickListener (SearchMainAdapter.OnItemClickListener listener){
+        this.mListener = listener;
+    }
 }

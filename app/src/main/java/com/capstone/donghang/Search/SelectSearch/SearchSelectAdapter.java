@@ -16,7 +16,12 @@ import com.capstone.donghang.Search.AfterSearch.SearchAfterAdapter;
 import java.util.ArrayList;
 
 public class SearchSelectAdapter extends RecyclerView.Adapter<SearchSelectAdapter.ViewHolder> {
-    private ArrayList<String> mData = null;
+    private ArrayList<Integer> mData = null;
+
+    public SearchSelectAdapter (ArrayList<Integer> list){
+        mData = list;
+    }
+
     @NonNull
     @Override
     public SearchSelectAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -30,15 +35,13 @@ public class SearchSelectAdapter extends RecyclerView.Adapter<SearchSelectAdapte
         return vh;
     }
 
-    public SearchSelectAdapter (ArrayList<String> list){
-        mData = list;
-    }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         holder.tv.setVisibility(View.GONE);
-        holder.iv.setImageResource(R.drawable.ic_calendar_material_design);
+        holder.iv.setImageResource(mData.get(position));
+
     }
 
     @Override
