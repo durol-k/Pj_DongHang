@@ -15,11 +15,11 @@ import com.capstone.donghang.R;
 import java.util.List;
 
 /**
- 댓글 어댑터
+ * 댓글 어댑터
  */
 public class Fragment_Community_Comment_RecyclerAdapter extends RecyclerView.Adapter<Fragment_Community_Comment_RecyclerAdapter.ViewHolder> {
-    Context context;
-    List<Fragment_Community_Comment_Item> commentList;
+    private Context context;
+    private List<Fragment_Community_Comment_Item> commentList; // 댓글 리스트
 
     public Fragment_Community_Comment_RecyclerAdapter(Context context, List<Fragment_Community_Comment_Item> commentList) {
         this.context = context;
@@ -53,9 +53,10 @@ public class Fragment_Community_Comment_RecyclerAdapter extends RecyclerView.Ada
         return commentList.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder{
-        TextView id,time,content;
+    class ViewHolder extends RecyclerView.ViewHolder {
+        TextView id, time, content;
         ImageView icon;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 

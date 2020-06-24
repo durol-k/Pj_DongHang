@@ -7,11 +7,24 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/fragment_community_main">
 
+    <TextView
+        android:id="@+id/community_main_category_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="@string/category_init"
+        android:textColor="@color/community_black"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/community_mainlist_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="40dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/community_main_category_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

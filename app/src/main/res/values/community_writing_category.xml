@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="community_category">
+        <item>게시판 선택</item>
         <item>공지사항</item>
         <item>국내 여행 후기</item>
         <item>해외 여행 후기</item>
@@ -18,6 +19,7 @@
     </string-array>
 
     <string-array name="community_header_notice">
+        <item>머리말 선택</item>
         <item>긴급</item>
         <item>일반</item>
     </string-array>
