@@ -33,8 +33,9 @@ public class FragmentSelectSearch extends Fragment implements OnMapReadyCallback
     TextView tvName,tvSort,tvContent,tvAddress,tvTelnum;
     RatingBar rb;
     RecyclerView rcv;
-    MapView mapView;
+
     FragmentSelectSearchDto info;
+    GoogleMap gMap;
 
     public FragmentSelectSearch(FragmentSelectSearchDto _info){
         info = _info;
@@ -52,10 +53,11 @@ public class FragmentSelectSearch extends Fragment implements OnMapReadyCallback
         tvTelnum = view.findViewById(R.id.tvSSLTelnum);
         rb = view.findViewById(R.id.rbSSL);
 
-        mapView = view.findViewById(R.id.mapSSL);
+        MapView mapView = view.findViewById(R.id.mapSSL);
         rcv = view.findViewById(R.id.rcvSSL);
 
-
+        mapView.onCreate(savedInstanceState);
+        mapView.onResume();
         mapView.getMapAsync( this);
 
         rcv.setLayoutManager(new LinearLayoutManager(view.getContext(),LinearLayoutManager.HORIZONTAL,false));
@@ -76,23 +78,19 @@ public class FragmentSelectSearch extends Fragment implements OnMapReadyCallback
         return view;
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
 
-        if(mapView != null)
-            mapView.onCreate(savedInstanceState);
-    }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        gMap = googleMap;
         LatLng latLng = info.getMapMark();
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latLng);
-        googleMap.addMarker(markerOptions);
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        googleMap.animateCamera(CameraUpdateFactory.zoomTo(13));
+        gMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        gMap.addMarker(markerOptions);
+        gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,13));
     }
+
 
     @Override
     public void onStart() {
